@@ -39,7 +39,7 @@ export default function BrandStatement() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
                     src={FLEET_IMAGE}
-                    alt="Kamioni Lemon Logistics na parkingu u sumrak"
+                    alt="Lemon Logistics dostavno vozilo na gradskoj ulici"
                     className="block h-full w-full"
                     fittingType="fill"
                   />

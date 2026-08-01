@@ -10,13 +10,15 @@ export const CONTACT = {
   location: "Podgorica, Crna Gora",
 };
 
-export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/2d9c7e8a2_generated_56cb9598.png";
-export const WAREHOUSE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/15a62ba43_generated_7acf1840.png";
+export const LOGO = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/63b1396b1_logo-bijeli-zuti.svg";
+export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/062a0d630_heroimage.png";
+export const WAREHOUSE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/e03db8376_warehouse.png";
 export const HIGHWAY_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/9286583ce_generated_fe0a129a.png";
 export const MOUNTAIN_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/f11402b6c_generated_3e49e3ed.png";
+export const KARGO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/3ebfbd662_kargo.png";
 export const CARGO_HANDLING_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/f795980d1_generated_5715ff5b.png";
 export const DISTRIBUTION_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/bb02894e6_generated_06250e5d.png";
-export const FLEET_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/20cd4fb0b_generated_5040c3ef.png";
+export const FLEET_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/e372ac267_truck1.png";
 export const GRILLE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/a0dc4bb20_generated_e7eb9fda.png";
 
 export const SERVICES = [
@@ -26,7 +28,7 @@ export const SERVICES = [
     short: "Organizujemo međunarodni transport robe uz pažnju prema dokumentaciji, rokovima i koordinaciji na cijelom putu.",
     description:
       "Međunarodni transport zahtijeva preciznu organizaciju, poznavanje procedura i stalnu koordinaciju. Pristupamo svakom prevozu planski, uz jasnu komunikaciju i praćenje tokom cijelog procesa.",
-    image: HIGHWAY_IMAGE,
+    image: KARGO_IMAGE,
     icon: "Globe",
     benefits: [
       "Koordinacija preko granice i dokumentacija",

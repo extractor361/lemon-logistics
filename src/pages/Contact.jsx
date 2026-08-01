@@ -4,7 +4,7 @@ import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle } fr
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
-import { CARGO_HANDLING_IMAGE, CONTACT, SERVICES } from "@/lib/siteData";
+import { KARGO_IMAGE, CONTACT, SERVICES } from "@/lib/siteData";
 
 const contactItems = [
   { icon: Phone, label: "Telefon", value: CONTACT.phone, href: CONTACT.phoneHref },
@@ -49,7 +49,7 @@ export default function Contact() {
         label="Kontakt"
         title="Kontaktirajte nas"
         subtitle="Opisite vaš zahtjev i vratićemo se sa konkretnim prijedlogom. Tu smo svakog dana od 08:00 do 20:00."
-        image={CARGO_HANDLING_IMAGE}
+        image={KARGO_IMAGE}
       />
 
       <section className="bg-lemon-dark py-20 lg:py-32">
