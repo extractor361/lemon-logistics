@@ -36,8 +36,8 @@ export const translations = {
       title2: "Precizna isporuka.",
       p1: "Lemon Logistics je logistička kompanija specijalizovana za međunarodni transport, unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.",
       p2: "Nastali smo iz dugogodišnjeg iskustva u logistici, prodaji i razvoju poslovnih sistema. Nakon godina rada na izgradnji uspješnih procesa, odlučili smo da stvorimo sopstveni sistem, kompaniju koja će poslovati profesionalno, odgovorno i transparentno.",
-      p3: "Za nas transport nije samo prevoz robe od tačke A do tačke B. To je odgovornost prema klijentu, poštovanje dogovorenih rokova i stalna komunikacija tokom cijelog procesa.",
-      p4: "Naš cilj nije da budemo najveća transportna kompanija. Naš cilj je da budemo kompanija kojoj se partneri vraćaju zato što znaju da će svaki posao biti organizovan ozbiljno, efikasno i bez nepotrebnih komplikacija.",
+      p3: "Za nas transport predstavlja odgovornost prema klijentu, poštovanje dogovorenih rokova i stalnu komunikaciju tokom cijelog procesa.",
+      p4: "Težimo da budemo kompanija kojoj se partneri vraćaju, znajući da će svaki posao biti organizovan ozbiljno, efikasno i bez nepotrebnih komplikacija.",
       alt: "Lemon Logistics dostavno vozilo na gradskoj ulici",
     },
     coreValues: {
@@ -257,8 +257,8 @@ export const translations = {
       title2: "Precise delivery.",
       p1: "Lemon Logistics is a logistics company specializing in international transport, domestic transport, warehousing and the organization of logistics services in Montenegro.",
       p2: "We were born from years of experience in logistics, sales and business systems development. After years of building successful processes, we decided to create our own system, a company that would operate professionally, responsibly and transparently.",
-      p3: "For us, transport is not just moving goods from point A to point B. It is a responsibility to the client, respect for agreed deadlines and constant communication throughout the entire process.",
-      p4: "Our goal is not to be the biggest transport company. Our goal is to be the company partners come back to because they know every job will be organized seriously, efficiently and without unnecessary complications.",
+      p3: "For us, transport is a responsibility to the client, respect for agreed deadlines and constant communication throughout the entire process.",
+      p4: "We strive to be the company partners come back to, knowing that every job will be organized seriously, efficiently and without unnecessary complications.",
       alt: "Lemon Logistics delivery vehicle on a city street",
     },
     coreValues: {
