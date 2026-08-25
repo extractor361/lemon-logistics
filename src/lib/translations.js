@@ -203,6 +203,7 @@ export const translations = {
       successTitle: "Upit uspješno poslat",
       successText: "Hvala vam na povjerenju. Naš tim će vas kontaktirati u najkraćem mogućem roku.",
       newInquiry: "Pošaljite novi upit",
+      errorText: "Došlo je do greške pri slanju. Pokušajte ponovo ili nas pozovite.",
     },
     privacy: {
       heroLabel: "Pravna obavještenja",
@@ -423,6 +424,7 @@ export const translations = {
       successTitle: "Inquiry successfully sent",
       successText: "Thank you for your trust. Our team will contact you as soon as possible.",
       newInquiry: "Send a new inquiry",
+      errorText: "An error occurred while sending. Please try again or call us.",
     },
     privacy: {
       heroLabel: "Legal notices",

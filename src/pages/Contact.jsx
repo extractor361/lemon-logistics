@@ -27,33 +27,18 @@ export default function Contact() {
 
   const selectedService = watch("service");
 
+  const [submitError, setSubmitError] = useState(false);
+
   const onSubmit = async (data) => {
     setSubmitting(true);
+    setSubmitError(false);
     try {
-      const body = [
-        `Ime i prezime: ${data.name}`,
-        `Kompanija: ${data.company}`,
-        `Telefon: ${data.phone}`,
-        `Email: ${data.email}`,
-        `Vrsta usluge: ${data.service}`,
-        `Datum utovara: ${data.datum_utovara}`,
-        `Mjesto utovara: ${data.origin || "-"}`,
-        `Mjesto istovara: ${data.destination || "-"}`,
-        `Carinjenje: ${data.carinjenje ? "Da" : "Ne"}`,
-        "",
-        "Poruka:",
-        data.message,
-      ].join("\n");
-
-      await base44.integrations.Core.SendEmail({
-        to: CONTACT_FORM_EMAIL,
-        subject: `Novi upit sa sajta — ${data.name}`,
-        body,
-      });
+      await base44.functions.invoke("sendContactInquiry", data);
       setSubmitted(true);
       reset();
     } catch (e) {
       console.error(e);
+      setSubmitError(true);
     } finally {
       setSubmitting(false);
     }
@@ -320,6 +305,13 @@ export default function Contact() {
                           {!submitting && <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />}
                         </button>
                       </div>
+
+                      {submitError && (
+                        <div className="mt-4 flex items-center gap-2 text-red-400 text-sm border border-red-500/30 bg-red-500/10 rounded-sm px-4 py-3">
+                          <AlertCircle className="h-4 w-4 shrink-0" />
+                          {t.contact.errorText}
+                        </div>
+                      )}
                     </form>
                   )}
                 </div>
