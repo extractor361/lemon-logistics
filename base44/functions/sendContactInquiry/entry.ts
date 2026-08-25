@@ -4,6 +4,7 @@ export default async function(req: Request): Promise<Response> {
   try {
     const base44 = createClientFromRequest(req);
     const data = await req.json();
+    const apiKey = process.env.RESEND_API_KEY;
 
     const {
       name, company, phone, email, service,
@@ -29,11 +30,24 @@ export default async function(req: Request): Promise<Response> {
       message,
     ].join("\n");
 
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: "office@lemonlogistics.me",
-      subject: `Novi upit sa sajta — ${name}`,
-      body,
+    const emailRes = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Lemon Logistics <office@lemonlogistics.me>",
+        to: "office@lemonlogistics.me",
+        subject: `Novi upit sa sajta — ${name}`,
+        text: body,
+      }),
     });
+
+    if (!emailRes.ok) {
+      const errText = await emailRes.text();
+      throw new Error(`Resend greška: ${errText}`);
+    }
 
     return Response.json({ ok: true });
   } catch (error) {
