@@ -13,16 +13,16 @@ export const CONTACT = {
 // Email adresa na koju kontakt forma šalje upite (privremeno za testiranje)
 export const CONTACT_FORM_EMAIL = "info@digital-artefakt.me";
 
-export const LOGO = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/63b1396b1_logo-bijeli-zuti.svg";
-export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/066521f61_heroimage.png";
-export const WAREHOUSE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/e03db8376_warehouse.png";
-export const HIGHWAY_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/9286583ce_generated_fe0a129a.png";
-export const MOUNTAIN_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/f11402b6c_generated_3e49e3ed.png";
-export const KARGO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/3ebfbd662_kargo.png";
-export const CARGO_HANDLING_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/f795980d1_generated_5715ff5b.png";
-export const DISTRIBUTION_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/bb02894e6_generated_06250e5d.png";
-export const FLEET_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/e372ac267_truck1.png";
-export const GRILLE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/a0dc4bb20_generated_e7eb9fda.png";
+export const LOGO = "/images/lemon-logistics-logo-white-yellow.svg";
+export const HERO_IMAGE = "/images/lemon-logistics-hero.png";
+export const WAREHOUSE_IMAGE = "/images/lemon-logistics-warehouse.png";
+export const HIGHWAY_IMAGE = "/images/lemon-logistics-transport-01.png";
+export const MOUNTAIN_IMAGE = "/images/lemon-logistics-transport-02.png";
+export const KARGO_IMAGE = "/images/lemon-logistics-cargo.png";
+export const CARGO_HANDLING_IMAGE = "/images/lemon-logistics-transport-03.png";
+export const DISTRIBUTION_IMAGE = "/images/lemon-logistics-transport-04.png";
+export const FLEET_IMAGE = "/images/lemon-logistics-truck.png";
+export const GRILLE_IMAGE = "/images/lemon-logistics-transport-05.png";
 
 export const SERVICES = [
   {

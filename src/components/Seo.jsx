@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const SITE_NAME = "Lemon Logistics";
-const DEFAULT_OG_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/066521f61_heroimage.png";
+const DEFAULT_OG_IMAGE = "/images/lemon-logistics-hero.png";
 
 function upsertMeta(selector, attr, content) {
   let el = document.head.querySelector(selector);
