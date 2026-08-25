@@ -1,0 +1,15 @@
+# Lemon Logistics — pravila za pretraživače
+# Produkcioni domen: https://www.lemonlogistics.me
+
+User-agent: *
+Allow: /
+
+# Privatne / tehničke rute ne treba indeksirati
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /oauth-consent
+Disallow: /api/
+
+Sitemap: https://www.lemonlogistics.me/sitemap.xml
