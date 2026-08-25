@@ -211,8 +211,21 @@ const Image = React.forwardRef(
 
     if (!parsed) {
       const isErrorUrl = imgSrc === FALLBACK_IMAGE_URL
+      const objectFitClass = fittingType === "fit" ? "object-contain" : "object-cover"
+      const focalStyle =
+        typeof focalPointX === "number" && typeof focalPointY === "number"
+          ? { objectPosition: `${focalPointX * 100}% ${focalPointY * 100}%`, ...props.style }
+          : props.style
+
       return (
-        <img ref={ref} src={imgSrc} {...imageProps} data-error-image={isErrorUrl || undefined} />
+        <img
+          ref={ref}
+          src={imgSrc}
+          {...imageProps}
+          className={cn(objectFitClass, props.className)}
+          style={focalStyle}
+          data-error-image={isErrorUrl || undefined}
+        />
       )
     }
 
