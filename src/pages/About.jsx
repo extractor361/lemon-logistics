@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { Image } from "@/components/ui/image";
 import { ShieldCheck, MessageSquare, CheckCircle2, Handshake, ArrowRight, Target, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,6 +18,12 @@ export default function About() {
 
   return (
     <>
+      <Seo
+        title="O nama — Kompanija kojoj se partneri vraćaju"
+        description="Lemon Logistics je logistička kompanija koja transport, skladištenje i distribuciju posmatra kao odgovornost — prema roku, robi i klijentu. Upoznajte naš tim, misiju i vrijednosti."
+        image={WAREHOUSE_IMAGE}
+        path="/o-nama"
+      />
       <PageHero
         label={t.about.heroLabel}
         title={t.about.heroTitle}

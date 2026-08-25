@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
@@ -66,6 +67,12 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title="Kontakt — Pošaljite upit o prevozu"
+        description="Kontaktirajte Lemon Logistics. Pozovite 020/66-22-66 ili pošaljite upit putem forme. Tu smo svakog dana od 08:00 do 20:00 za međunarodni i unutrašnji transport u Crnoj Gori."
+        image={KARGO_IMAGE}
+        path="/kontakt"
+      />
       <PageHero
         label={t.contact.heroLabel}
         title={t.contact.heroTitle}

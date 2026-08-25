@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { Phone, Mail, Clock, Globe, MapPin, ArrowRight, Headset, MessageSquare, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
@@ -13,6 +14,12 @@ export default function CustomerSupport() {
 
   return (
     <>
+      <Seo
+        title="Lemon Customer Support — Podrška koja prati svaku isporuku"
+        description="Pravovremena informacija je ključna u logistici. Naš tim je dostupan svakog dana od 08:00 do 20:00 na 020/66-22-66 za pitanja, izmjene i informacije o pošiljci."
+        image={GRILLE_IMAGE}
+        path="/customer-support"
+      />
       <PageHero
         label={t.customerSupport.heroLabel}
         title={t.customerSupport.heroTitle}

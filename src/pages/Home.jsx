@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Hero from "@/components/home/Hero";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import BrandStatement from "@/components/home/BrandStatement";
@@ -10,6 +11,11 @@ import FinalCTA from "@/components/home/FinalCTA";
 export default function Home() {
   return (
     <>
+      <Seo
+        title="Pouzdana logistika za vaš posao | Crna Gora"
+        description="Lemon Logistics — međunarodni i unutrašnji transport, skladištenje i distribucija robe u Crnoj Gori. Pouzdana organizacija, jasna komunikacija i odgovoran pristup svakom zadatku."
+        path="/"
+      />
       <Hero />
       <ServicesPreview />
       <BrandStatement />

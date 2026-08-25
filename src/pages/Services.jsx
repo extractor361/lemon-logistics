@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { Image } from "@/components/ui/image";
 import { Check, ArrowRight, Globe, Truck, Warehouse, PackageCheck, Boxes, Headset } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -13,6 +14,12 @@ export default function Services() {
   const { lang, t } = useLanguage();
   return (
     <>
+      <Seo
+        title="Usluge — Logističke usluge prilagođene vašem poslovanju"
+        description="Međunarodni transport, unutrašnji transport, skladištenje, distribucija i manipulacija robom u Crnoj Gori. Organizujemo svaku uslugu ozbiljno, transparentno i u skladu sa dogovorenim rokovima."
+        image={HIGHWAY_IMAGE}
+        path="/usluge"
+      />
       <PageHero
         label={t.services.heroLabel}
         title={t.services.heroTitle}

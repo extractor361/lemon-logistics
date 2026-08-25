@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Reveal from "@/components/shared/Reveal";
 import PageHero from "@/components/shared/PageHero";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -6,6 +7,11 @@ export default function Privacy() {
   const { t } = useLanguage();
   return (
     <>
+      <Seo
+        title="Politika privatnosti"
+        description="Politika privatnosti Lemon Logistics — kako prikupljamo, obrađujemo i čuvamo vaše lične podatke u skladu sa zakonskim obavezama."
+        path="/politika-privatnosti"
+      />
       <PageHero
         label={t.privacy.heroLabel}
         title={t.privacy.heroTitle}
