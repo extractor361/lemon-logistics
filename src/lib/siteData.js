@@ -3,12 +3,15 @@
 export const CONTACT = {
   phone: "020/66-22-66",
   phoneHref: "tel:+38220662266",
-  email: "info@lemonlogistic.com",
-  website: "lemonlogistic.com",
+  email: "vuksan.minic@lemongroup.me",
+  website: "lemonlogistics.me",
   workingHours: "08:00–20:00, svakog dana",
   workingHoursShort: "08:00–20:00",
   location: "Podgorica, Crna Gora",
 };
+
+// Email adresa na koju kontakt forma šalje upite (privremeno za testiranje)
+export const CONTACT_FORM_EMAIL = "info@digital-artefakt.me";
 
 export const LOGO = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/63b1396b1_logo-bijeli-zuti.svg";
 export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/066521f61_heroimage.png";

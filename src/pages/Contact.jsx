@@ -4,8 +4,9 @@ import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle } fr
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
-import { KARGO_IMAGE, CONTACT } from "@/lib/siteData";
+import { KARGO_IMAGE, CONTACT, CONTACT_FORM_EMAIL } from "@/lib/siteData";
 import { useLanguage } from "@/lib/LanguageContext";
+import { base44 } from "@/api/base44Client";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -28,10 +29,34 @@ export default function Contact() {
 
   const onSubmit = async (data) => {
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    setSubmitting(false);
-    setSubmitted(true);
-    reset();
+    try {
+      const body = [
+        `Ime i prezime: ${data.name}`,
+        `Kompanija: ${data.company}`,
+        `Telefon: ${data.phone}`,
+        `Email: ${data.email}`,
+        `Vrsta usluge: ${data.service}`,
+        `Datum utovara: ${data.datum_utovara}`,
+        `Mjesto utovara: ${data.origin || "-"}`,
+        `Mjesto istovara: ${data.destination || "-"}`,
+        `Carinjenje: ${data.carinjenje ? "Da" : "Ne"}`,
+        "",
+        "Poruka:",
+        data.message,
+      ].join("\n");
+
+      await base44.integrations.Core.SendEmail({
+        to: CONTACT_FORM_EMAIL,
+        subject: `Novi upit sa sajta — ${data.name}`,
+        body,
+      });
+      setSubmitted(true);
+      reset();
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass = (field) =>
