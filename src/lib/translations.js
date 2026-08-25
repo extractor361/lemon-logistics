@@ -32,8 +32,8 @@ export const translations = {
     },
     brandStatement: {
       label: "O Lemon Logistics",
-      title1: "Ne organizujemo samo transport.",
-      title2: "Gradimo povjerenje.",
+      title1: "Pouzdan transport.",
+      title2: "Precizna isporuka.",
       p1: "Lemon Logistics je logistička kompanija specijalizovana za međunarodni transport, unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.",
       p2: "Nastali smo iz dugogodišnjeg iskustva u logistici, prodaji i razvoju poslovnih sistema. Nakon godina rada na izgradnji uspješnih procesa, odlučili smo da stvorimo sopstveni sistem – kompaniju koja će poslovati onako kako vjerujemo da logistika treba da funkcioniše: profesionalno, odgovorno i transparentno.",
       p3: "Za nas transport nije samo prevoz robe od tačke A do tačke B. To je odgovornost prema klijentu, poštovanje dogovorenih rokova i stalna komunikacija tokom cijelog procesa.",
@@ -253,8 +253,8 @@ export const translations = {
     },
     brandStatement: {
       label: "About Lemon Logistics",
-      title1: "We don't just organize transport.",
-      title2: "We build trust.",
+      title1: "Reliable transport.",
+      title2: "Precise delivery.",
       p1: "Lemon Logistics is a logistics company specializing in international transport, domestic transport, warehousing and the organization of logistics services in Montenegro.",
       p2: "We were born from years of experience in logistics, sales and business systems development. After years of building successful processes, we decided to create our own system — a company that would operate the way we believe logistics should work: professionally, responsibly and transparently.",
       p3: "For us, transport is not just moving goods from point A to point B. It is a responsibility to the client, respect for agreed deadlines and constant communication throughout the entire process.",
