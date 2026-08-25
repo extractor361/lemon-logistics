@@ -30,7 +30,7 @@ export default async function(req: Request): Promise<Response> {
     ].join("\n");
 
     await base44.asServiceRole.integrations.Core.SendEmail({
-      to: "info@digital-artefakt.me",
+      to: "office@lemonlogistics.me",
       subject: `Novi upit sa sajta — ${name}`,
       body,
     });
