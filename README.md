@@ -1,77 +1,75 @@
-# Base44 Project
+# Lemon Logistics
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+Official web application for **Lemon Logistics**.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+This project is built with **React + Vite** and connected to **Base44** for application services and backend functionality.
 
-## Prerequisites
+The source code is synchronized through GitHub and can be deployed independently through **Vercel**.
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
+## Development
 
-See the [Base44 CLI docs](https://docs.base44.com/developers/references/cli/get-started/overview) if you want to run Base44 commands directly.
-
-## Run Locally
-
-Run the full local development environment from the project root:
+Clone the repository and install dependencies:
 
 ```bash
-base44 dev
+npm install
 ```
 
-`base44 dev` starts the local Base44 development backend and, when this app is configured for it, also starts the frontend dev server for you. Use the frontend URL printed by the command.
-
-For example, when the Base44 project config includes a `serveCommand`, `base44 dev` can launch the frontend too:
-
-```json5
-{
-  "site": {
-    "serveCommand": "npm run dev"
-  }
-}
-```
-
-In a Base44 project this lives in `base44/config.jsonc`.
-
-## Run Only The Frontend
-
-If you only want to work on the frontend against the hosted Base44 backend, run:
+Start the frontend development server:
 
 ```bash
 npm run dev
 ```
 
-Open the local URL printed by Vite.
+## Base44
 
-## Use The Hosted Backend
+The application can use the hosted Base44 backend.
 
-For frontend-only development, create or update `.env.local` in the project root:
+For local frontend development, create a `.env.local` file in the project root:
 
-```bash
+```env
 VITE_BASE44_APP_ID=your_app_id
 VITE_BASE44_APP_BASE_URL=https://your-app.base44.app
 ```
 
-`VITE_BASE44_APP_ID` identifies the Base44 app.
-
-`VITE_BASE44_APP_BASE_URL` tells the Base44 Vite plugin where to send local `/api` requests. Point it at your deployed Base44 app URL when you want the local frontend to use the hosted backend.
-
-When you use `base44 dev`, the command injects the local Base44 values for you, so `.env.local` is mainly needed for frontend-only workflows.
-
-## Publish Your Changes
-
-After pushing your changes to git, open the Base44 dashboard and publish the app:
+To use the complete Base44 local development environment:
 
 ```bash
-base44 dashboard open
+npm install -g base44@latest
+base44 dev
 ```
 
-## Docs & Support
+Changes pushed to this GitHub repository are synchronized with the connected Base44 project.
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+## Build
 
-Base44 CLI command reference: [https://docs.base44.com/developers/references/cli/commands/introduction](https://docs.base44.com/developers/references/cli/commands/introduction)
+Create a production build with:
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+```bash
+npm run build
+```
+
+The generated production files are located in:
+
+```text
+dist/
+```
+
+## Deployment
+
+The frontend can be deployed through **Vercel** directly from the `main` branch of this repository.
+
+Recommended Vercel configuration:
+
+```text
+Framework Preset: Vite
+Build Command: npm run build
+Output Directory: dist
+Install Command: npm install
+```
+
+Every new commit pushed to the `main` branch can trigger a new Vercel deployment.
+
+---
+
+**Lemon Logistics**
+Reliable logistics solutions for your business.
