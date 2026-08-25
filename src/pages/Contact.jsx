@@ -6,7 +6,6 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
 import { KARGO_IMAGE, CONTACT, CONTACT_FORM_EMAIL } from "@/lib/siteData";
 import { useLanguage } from "@/lib/LanguageContext";
-import { base44 } from "@/api/base44Client";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -33,7 +32,15 @@ export default function Contact() {
     setSubmitting(true);
     setSubmitError(false);
     try {
-      await base44.functions.invoke("sendContactInquiry", data);
+      const res = await fetch("/api/sendContactInquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || `HTTP ${res.status}`);
+      }
       setSubmitted(true);
       reset();
     } catch (e) {
