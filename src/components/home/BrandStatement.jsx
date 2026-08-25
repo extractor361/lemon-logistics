@@ -2,8 +2,10 @@ import { Image } from "@/components/ui/image";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { FLEET_IMAGE } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function BrandStatement() {
+  const { t } = useLanguage();
   return (
     <section className="bg-lemon-gray py-20 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
@@ -11,28 +13,20 @@ export default function BrandStatement() {
           {/* Text */}
           <div className="order-2 lg:order-1">
             <Reveal>
-              <SectionLabel>O Lemon Logistics</SectionLabel>
+              <SectionLabel>{t.brandStatement.label}</SectionLabel>
             </Reveal>
             <Reveal delay={80}>
               <h2 className="mt-5 text-white text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-balance">
-                Ne organizujemo samo transport.<br />
-                <span className="text-lemon-yellow">Gradimo povjerenje.</span>
+                {t.brandStatement.title1}<br />
+                <span className="text-lemon-yellow">{t.brandStatement.title2}</span>
               </h2>
             </Reveal>
             <Reveal delay={160}>
               <div className="mt-8 space-y-5 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                <p>
-                  Lemon Logistics je logistička kompanija specijalizovana za međunarodni transport, unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.
-                </p>
-                <p>
-                  Nastali smo iz dugogodišnjeg iskustva u logistici, prodaji i razvoju poslovnih sistema. Nakon godina rada na izgradnji uspješnih procesa, odlučili smo da stvorimo sopstveni sistem – kompaniju koja će poslovati onako kako vjerujemo da logistika treba da funkcioniše: profesionalno, odgovorno i transparentno.
-                </p>
-                <p>
-                  Za nas transport nije samo prevoz robe od tačke A do tačke B. To je odgovornost prema klijentu, poštovanje dogovorenih rokova i stalna komunikacija tokom cijelog procesa.
-                </p>
-                <p>
-                  Naš cilj nije da budemo najveća transportna kompanija. Naš cilj je da budemo kompanija kojoj se partneri vraćaju zato što znaju da će svaki posao biti organizovan ozbiljno, efikasno i bez nepotrebnih komplikacija.
-                </p>
+                <p>{t.brandStatement.p1}</p>
+                <p>{t.brandStatement.p2}</p>
+                <p>{t.brandStatement.p3}</p>
+                <p>{t.brandStatement.p4}</p>
               </div>
             </Reveal>
           </div>
@@ -45,7 +39,7 @@ export default function BrandStatement() {
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                   <Image
                     src={FLEET_IMAGE}
-                    alt="Lemon Logistics dostavno vozilo na gradskoj ulici"
+                    alt={t.brandStatement.alt}
                     className="block h-full w-full"
                     fittingType="fill"
                   />

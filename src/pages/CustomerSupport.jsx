@@ -1,23 +1,22 @@
 import { Phone, Mail, Clock, Globe, MapPin, ArrowRight, Headset, MessageSquare, CheckCircle2 } from "lucide-react";
-import { Link } from "react-router-dom";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
 import { GRILLE_IMAGE, CONTACT } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const features = [
-  { icon: Headset, title: "Dostupan tim", text: "Svakog dana od 08:00 do 20:00 za pitanja, izmjene i informacije o pošiljci." },
-  { icon: MessageSquare, title: "Jasna komunikacija", text: "Partnere redovno informišemo o statusu isporuke — bez čekanja i nagađanja." },
-  { icon: CheckCircle2, title: "Tačne informacije", text: "Vraćamo se sa konkretnim odgovorima, a ne sa obećanjima bez pokrića." },
-];
+const featureIcons = [Headset, MessageSquare, CheckCircle2];
 
 export default function CustomerSupport() {
+  const { t } = useLanguage();
+  const features = t.customerSupport.features.map((f, i) => ({ ...f, icon: featureIcons[i] }));
+
   return (
     <>
       <PageHero
-        label="Podrška"
-        title="Lemon Customer Support"
-        subtitle="Pravovremena informacija je ključna u logistici. Zato je naš tim dostupan svakog dana, kako biste uvijek imali pouzdanu podršku."
+        label={t.customerSupport.heroLabel}
+        title={t.customerSupport.heroTitle}
+        subtitle={t.customerSupport.heroSubtitle}
         image={GRILLE_IMAGE}
       />
 
@@ -25,15 +24,15 @@ export default function CustomerSupport() {
       <section className="bg-lemon-dark py-20 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="max-w-3xl mb-12 lg:mb-16">
-            <Reveal><SectionLabel>Lemon Customer Support</SectionLabel></Reveal>
+            <Reveal><SectionLabel>{t.customerSupport.label}</SectionLabel></Reveal>
             <Reveal delay={80}>
               <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight text-balance">
-                Podrška koja prati svaku isporuku
+                {t.customerSupport.title}
               </h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                Znamo koliko je pravovremena informacija važna u logistici. Zato je naš tim dostupan svakog dana od 08:00 do 20:00, kako bi partneri u svakom trenutku imali pouzdanu podršku i tačne informacije.
+                {t.customerSupport.text}
               </p>
             </Reveal>
           </div>
@@ -63,15 +62,15 @@ export default function CustomerSupport() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Left — heading + CTA */}
               <div className="p-8 sm:p-12 lg:p-16">
-                <Reveal><SectionLabel>Kontakt</SectionLabel></Reveal>
+                <Reveal><SectionLabel>{t.customerSupport.contactLabel}</SectionLabel></Reveal>
                 <Reveal delay={80}>
                   <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                    Razgovarajmo direktno
+                    {t.customerSupport.contactTitle}
                   </h2>
                 </Reveal>
                 <Reveal delay={160}>
                   <p className="mt-6 text-lemon-gray-light text-base lg:text-lg leading-relaxed max-w-md">
-                    Najbrži način da dobijete informaciju jeste da nas pozovete. Tu smo da odgovorimo na svako pitanje vezano za vašu isporuku.
+                    {t.customerSupport.contactText}
                   </p>
                 </Reveal>
                 <Reveal delay={240}>
@@ -79,7 +78,7 @@ export default function CustomerSupport() {
                     href={CONTACT.phoneHref}
                     className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors"
                   >
-                    Pozovite nas
+                    {t.customerSupport.cta}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </a>
                 </Reveal>
@@ -94,7 +93,7 @@ export default function CustomerSupport() {
                         <Phone className="h-4 w-4" strokeWidth={1.5} />
                       </span>
                       <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Telefon</div>
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.customerSupport.phone}</div>
                         <a href={CONTACT.phoneHref} className="text-white text-xl font-heading font-bold hover:text-lemon-yellow transition-colors">
                           {CONTACT.phone}
                         </a>
@@ -105,7 +104,7 @@ export default function CustomerSupport() {
                         <Clock className="h-4 w-4" strokeWidth={1.5} />
                       </span>
                       <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Radno vrijeme</div>
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.customerSupport.hours}</div>
                         <div className="text-white text-xl font-heading font-bold">{CONTACT.workingHours}</div>
                       </div>
                     </li>
@@ -114,7 +113,7 @@ export default function CustomerSupport() {
                         <Mail className="h-4 w-4" strokeWidth={1.5} />
                       </span>
                       <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Email</div>
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.customerSupport.email}</div>
                         <a href={`mailto:${CONTACT.email}`} className="text-white text-xl font-heading font-bold hover:text-lemon-yellow transition-colors break-all">
                           {CONTACT.email}
                         </a>
@@ -125,7 +124,7 @@ export default function CustomerSupport() {
                         <Globe className="h-4 w-4" strokeWidth={1.5} />
                       </span>
                       <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Website</div>
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.customerSupport.website}</div>
                         <a href={`https://${CONTACT.website}`} className="text-white text-xl font-heading font-bold hover:text-lemon-yellow transition-colors">
                           {CONTACT.website}
                         </a>
@@ -136,7 +135,7 @@ export default function CustomerSupport() {
                         <MapPin className="h-4 w-4" strokeWidth={1.5} />
                       </span>
                       <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Lokacija</div>
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.customerSupport.location}</div>
                         <div className="text-white text-xl font-heading font-bold">{CONTACT.location}</div>
                       </div>
                     </li>

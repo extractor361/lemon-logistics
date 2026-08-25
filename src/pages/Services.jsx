@@ -5,16 +5,18 @@ import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
 import { SERVICES, HIGHWAY_IMAGE } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const iconMap = { Globe, Truck, Warehouse, PackageCheck, Boxes, Headset };
 
 export default function Services() {
+  const { lang, t } = useLanguage();
   return (
     <>
       <PageHero
-        label="Usluge"
-        title="Logističke usluge prilagođene vašem poslovanju"
-        subtitle="Od međunarodnog transporta do skladištenja i distribucije — organizujemo svaku uslugu ozbiljno, transparentno i u skladu sa dogovorenim rokovima."
+        label={t.services.heroLabel}
+        title={t.services.heroTitle}
+        subtitle={t.services.heroSubtitle}
         image={HIGHWAY_IMAGE}
       />
 
@@ -34,7 +36,7 @@ export default function Services() {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={lang === "en" ? service.titleEn : service.title}
                       className="block h-full w-full"
                       fittingType="fill"
                     />
@@ -47,21 +49,21 @@ export default function Services() {
                 {/* Content */}
                 <div className={reversed ? "lg:order-1" : ""}>
                   <Reveal>
-                    <SectionLabel>Usluga {String(index + 1).padStart(2, "0")}</SectionLabel>
+                    <SectionLabel>{t.services.serviceLabel} {String(index + 1).padStart(2, "0")}</SectionLabel>
                   </Reveal>
                   <Reveal delay={80}>
                     <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                      {service.title}
+                      {lang === "en" ? service.titleEn : service.title}
                     </h2>
                   </Reveal>
                   <Reveal delay={160}>
                     <p className="mt-5 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                      {service.description}
+                      {lang === "en" ? service.descriptionEn : service.description}
                     </p>
                   </Reveal>
                   <Reveal delay={220}>
                     <ul className="mt-8 space-y-3">
-                      {service.benefits.map((benefit) => (
+                      {(lang === "en" ? service.benefitsEn : service.benefits).map((benefit) => (
                         <li key={benefit} className="flex items-start gap-3">
                           <span className="inline-flex h-5 w-5 items-center justify-center bg-lemon-yellow/10 text-lemon-yellow rounded-sm shrink-0 mt-0.5">
                             <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
@@ -76,7 +78,7 @@ export default function Services() {
                       to="/kontakt"
                       className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-6 py-3.5 rounded-sm hover:bg-white transition-colors"
                     >
-                      Pošaljite upit o prevozu
+                      {t.services.cta}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Reveal>
@@ -92,16 +94,16 @@ export default function Services() {
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 text-center">
           <Reveal>
             <h2 className="text-white text-3xl lg:text-5xl font-heading font-black tracking-tight text-balance">
-              Niste sigurni koja usluga vam odgovara?
+              {t.services.finalTitle}
             </h2>
             <p className="mt-5 text-lemon-gray-light text-base lg:text-lg max-w-2xl mx-auto">
-              Opisite vaš potrebu i predložićemo najbolje rješenje za vaše poslovanje.
+              {t.services.finalText}
             </p>
             <Link
               to="/kontakt"
               className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors"
             >
-              Pošaljite upit o prevozu
+              {t.services.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>

@@ -6,6 +6,7 @@ import { MapPin, Navigation } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { COVERAGE_HUB, COVERAGE_DESTINATIONS } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Custom hub marker (yellow)
 const hubIcon = L.divIcon({
@@ -36,6 +37,7 @@ const destIcon = L.divIcon({
 
 export default function CoverageMap() {
   const [activeDest, setActiveDest] = useState(null);
+  const { lang, t } = useLanguage();
 
   return (
     <section className="bg-lemon-dark py-20 lg:py-28">
@@ -44,19 +46,16 @@ export default function CoverageMap() {
           {/* Tekst */}
           <div>
             <Reveal>
-              <SectionLabel>Mreža destinacija</SectionLabel>
+              <SectionLabel>{t.coverageMap.label}</SectionLabel>
             </Reveal>
             <Reveal delay={80}>
               <h2 className="mt-5 text-white text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-balance">
-                Pokrivamo Balkan i šire
+                {t.coverageMap.title}
               </h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 text-lemon-gray-light text-lg leading-relaxed max-w-xl">
-                Iz naše baze u Podgorici organizujemo prevoz ka ključnim
-                destinacijama u regionu i Evropi. Poznavanje relacija i procedura
-                na granicama omogućava nam da planiramo rutu koja štedi vrijeme
-                i novac.
+                {t.coverageMap.text}
               </p>
             </Reveal>
 
@@ -86,9 +85,7 @@ export default function CoverageMap() {
               <div className="mt-8 flex items-start gap-3 p-4 rounded bg-lemon-gray border-l-2 border-lemon-yellow">
                 <Navigation className="w-5 h-5 text-lemon-yellow shrink-0 mt-0.5" />
                 <p className="text-sm text-lemon-gray-light leading-relaxed">
-                  Vaša destinacija nije na listi? Kontaktirajte nas — rute
-                  prilagođavamo potrebama klijenata i pokrivamo i relacije van
-                  prikazane mreže.
+                  {t.coverageMap.note}
                 </p>
               </div>
             </Reveal>
@@ -127,7 +124,7 @@ export default function CoverageMap() {
                       <strong style={{ color: "#111" }}>{COVERAGE_HUB.name}</strong>
                       <br />
                       <span style={{ fontSize: "12px", color: "#666" }}>
-                        {COVERAGE_HUB.country} — baza
+                        {lang === "en" ? COVERAGE_HUB.countryEn : COVERAGE_HUB.country} — {t.coverageMap.hub}
                       </span>
                     </div>
                   </Popup>
@@ -148,7 +145,7 @@ export default function CoverageMap() {
                         <strong style={{ color: "#111" }}>{d.name}</strong>
                         <br />
                         <span style={{ fontSize: "12px", color: "#666" }}>
-                          {d.country}
+                          {lang === "en" ? d.countryEn : d.country}
                         </span>
                       </div>
                     </Popup>

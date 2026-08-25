@@ -6,28 +6,21 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
 import WhatWeDo from "@/components/about/WhatWeDo";
 import { WAREHOUSE_IMAGE, FLEET_IMAGE, CARGO_HANDLING_IMAGE } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const values = [
-  { icon: ShieldCheck, title: "Odgovornost", text: "Svaki dogovor shvatamo ozbiljno i preuzimamo odgovornost za njegovu realizaciju." },
-  { icon: MessageSquare, title: "Komunikacija", text: "Vjerujemo da kvalitetna komunikacija sprječava većinu problema. Zato naše partnere redovno informišemo o statusu svake isporuke." },
-  { icon: CheckCircle2, title: "Pouzdanost", text: "Poštujemo rokove, ispunjavamo obećanja i gradimo povjerenje kroz dosljedan rad." },
-  { icon: Handshake, title: "Partnerstvo", text: "Ne gledamo svaki transport kao pojedinačan posao, već kao početak dugoročne saradnje." },
-];
-
-const workSteps = [
-  { title: "Upit i analiza", text: "Slušamo vaše potrebe i analiziramo zahtjeve prije nego što predložimo rješenje." },
-  { title: "Predlog i dogovor", text: "Definišemo uslugu, rok i dinamiku, uz jasne uslove saradnje." },
-  { title: "Realizacija", text: "Organizujemo transport, skladištenje ili distribuciju uz praćenje u svakom koraku." },
-  { title: "Izvještaj i povratna informacija", text: "Zatvaramo proces sa izvještajem i otvorenim kanalom za sledeći korak." },
-];
+const iconMap = { ShieldCheck, MessageSquare, CheckCircle2, Handshake };
 
 export default function About() {
+  const { lang, t } = useLanguage();
+  const values = t.aboutValues.map((v, i) => ({ ...v, icon: [ShieldCheck, MessageSquare, CheckCircle2, Handshake][i] }));
+  const workSteps = t.aboutWorkSteps;
+
   return (
     <>
       <PageHero
-        label="O nama"
-        title="Kompanija kojoj se partneri vraćaju"
-        subtitle="Lemon Logistics je logistička kompanija koja transport, skladištenje i distribuciju posmatra kao odgovornost — prema roku, robi i klijentu."
+        label={t.about.heroLabel}
+        title={t.about.heroTitle}
+        subtitle={t.about.heroSubtitle}
         image={FLEET_IMAGE}
       />
 
@@ -36,33 +29,25 @@ export default function About() {
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <Reveal><SectionLabel>O nama</SectionLabel></Reveal>
+              <Reveal><SectionLabel>{t.about.label}</SectionLabel></Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                  Ne organizujemo samo transport.<br />
-                  <span className="text-lemon-yellow">Gradimo povjerenje.</span>
+                  {t.about.title1}<br />
+                  <span className="text-lemon-yellow">{t.about.title2}</span>
                 </h2>
               </Reveal>
               <Reveal delay={160}>
                 <div className="mt-6 space-y-4 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                  <p>
-                    Lemon Logistics je logistička kompanija specijalizovana za međunarodni transport, unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.
-                  </p>
-                  <p>
-                    Nastali smo iz dugogodišnjeg iskustva u logistici, prodaji i razvoju poslovnih sistema. Nakon godina rada na izgradnji uspješnih procesa, odlučili smo da stvorimo sopstveni sistem – kompaniju koja će poslovati onako kako vjerujemo da logistika treba da funkcioniše: profesionalno, odgovorno i transparentno.
-                  </p>
-                  <p>
-                    Za nas transport nije samo prevoz robe od tačke A do tačke B. To je odgovornost prema klijentu, poštovanje dogovorenih rokova i stalna komunikacija tokom cijelog procesa.
-                  </p>
-                  <p>
-                    Naš cilj nije da budemo najveća transportna kompanija. Naš cilj je da budemo kompanija kojoj se partneri vraćaju zato što znaju da će svaki posao biti organizovan ozbiljno, efikasno i bez nepotrebnih komplikacija.
-                  </p>
+                  <p>{t.about.p1}</p>
+                  <p>{t.about.p2}</p>
+                  <p>{t.about.p3}</p>
+                  <p>{t.about.p4}</p>
                 </div>
               </Reveal>
             </div>
             <Reveal delay={120}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-                <Image src={WAREHOUSE_IMAGE} alt="Skladište Lemon Logistics" className="block h-full w-full" fittingType="fill" />
+                <Image src={WAREHOUSE_IMAGE} alt={t.about.warehouseAlt} className="block h-full w-full" fittingType="fill" />
                 <div className="absolute -top-3 -right-3 h-16 w-16 border-t-2 border-r-2 border-lemon-yellow" />
               </div>
             </Reveal>
@@ -79,14 +64,10 @@ export default function About() {
                 <span className="inline-flex h-12 w-12 items-center justify-center border border-lemon-yellow/40 text-lemon-yellow rounded-sm">
                   <Target className="h-5 w-5" strokeWidth={1.5} />
                 </span>
-                <h2 className="mt-6 text-white text-2xl lg:text-3xl font-heading font-black tracking-tight">Naša misija</h2>
+                <h2 className="mt-6 text-white text-2xl lg:text-3xl font-heading font-black tracking-tight">{t.about.missionTitle}</h2>
                 <div className="mt-5 space-y-4 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                  <p>
-                    Da pojednostavimo logistiku našim partnerima kroz pouzdanu organizaciju transporta, kvalitetnu komunikaciju i odgovoran pristup svakom zadatku.
-                  </p>
-                  <p>
-                    Vjerujemo da logistički partner treba da preuzme brigu o procesu, kako bi se naši klijenti mogli posvetiti svom osnovnom poslu.
-                  </p>
+                  <p>{t.about.missionP1}</p>
+                  <p>{t.about.missionP2}</p>
                 </div>
               </div>
             </Reveal>
@@ -95,9 +76,9 @@ export default function About() {
                 <span className="inline-flex h-12 w-12 items-center justify-center border border-lemon-yellow/40 text-lemon-yellow rounded-sm">
                   <Eye className="h-5 w-5" strokeWidth={1.5} />
                 </span>
-                <h2 className="mt-6 text-white text-2xl lg:text-3xl font-heading font-black tracking-tight">Naša vizija</h2>
+                <h2 className="mt-6 text-white text-2xl lg:text-3xl font-heading font-black tracking-tight">{t.about.visionTitle}</h2>
                 <p className="mt-5 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                  Postati kompanija koja će biti prva asocijacija na pouzdan unutrašnji transport i logističku podršku u Crnoj Gori, prepoznata po vrhunskoj usluzi, profesionalnom timu i dugoročnim partnerstvima.
+                  {t.about.visionText}
                 </p>
               </div>
             </Reveal>
@@ -109,10 +90,10 @@ export default function About() {
       <section className="bg-lemon-dark py-20 lg:py-32 border-t border-white/5">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="max-w-2xl mb-12 lg:mb-16">
-            <Reveal><SectionLabel>Naše vrijednosti</SectionLabel></Reveal>
+            <Reveal><SectionLabel>{t.about.valuesLabel}</SectionLabel></Reveal>
             <Reveal delay={80}>
               <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                Četiri principa u svakom poslu
+                {t.about.valuesTitle}
               </h2>
             </Reveal>
           </div>
@@ -138,20 +119,20 @@ export default function About() {
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <Reveal><SectionLabel>Način rada</SectionLabel></Reveal>
+              <Reveal><SectionLabel>{t.about.workLabel}</SectionLabel></Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                  Kako pristupamo svakom poslu
+                  {t.about.workTitle}
                 </h2>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                  Ne obećavamo ono što ne možemo isporučiti. Svaki proces pratimo od upita do završetka, uz jasnu komunikaciju i odgovornost u svakom koraku.
+                  {t.about.workText}
                 </p>
               </Reveal>
               <Reveal delay={220}>
                 <div className="mt-8 relative aspect-[4/3] overflow-hidden rounded-sm">
-                  <Image src={CARGO_HANDLING_IMAGE} alt="Rukovanje robom u skladištu" className="block h-full w-full" fittingType="fill" />
+                  <Image src={CARGO_HANDLING_IMAGE} alt={t.about.cargoAlt} className="block h-full w-full" fittingType="fill" />
                 </div>
               </Reveal>
             </div>
@@ -176,7 +157,7 @@ export default function About() {
                   to="/kontakt"
                   className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors"
                 >
-                  Razgovarajmo o saradnji
+                  {t.about.workCta}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Reveal>

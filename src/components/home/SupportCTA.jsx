@@ -2,8 +2,10 @@ import { Phone, Mail, Clock, Globe, ArrowRight } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CONTACT } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function SupportCTA() {
+  const { t } = useLanguage();
   return (
     <section className="bg-lemon-dark py-20 lg:py-32 border-t border-white/5">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
@@ -16,16 +18,16 @@ export default function SupportCTA() {
             {/* Left — text + CTA */}
             <div className="p-8 sm:p-12 lg:p-16">
               <Reveal>
-                <SectionLabel>Podrška</SectionLabel>
+                <SectionLabel>{t.supportCTA.label}</SectionLabel>
               </Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight">
-                  Lemon Customer Support
+                  {t.supportCTA.title}
                 </h2>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 text-lemon-gray-light text-base lg:text-lg leading-relaxed max-w-lg">
-                  Znamo koliko je pravovremena informacija važna u logistici. Zato je naš Lemon Customer Support dostupan svakog dana od 08:00 do 20:00 putem broja 020/66-22-66, kako bi partneri u svakom trenutku imali pouzdanu podršku i tačne informacije.
+                  {t.supportCTA.text}
                 </p>
               </Reveal>
               <Reveal delay={240}>
@@ -33,7 +35,7 @@ export default function SupportCTA() {
                   href={CONTACT.phoneHref}
                   className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors duration-200"
                 >
-                  Pozovite nas
+                  {t.supportCTA.cta}
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Reveal>
@@ -48,7 +50,7 @@ export default function SupportCTA() {
                       <Phone className="h-4 w-4" strokeWidth={1.5} />
                     </span>
                     <div>
-                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Telefon</div>
+                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.supportCTA.phone}</div>
                       <a href={CONTACT.phoneHref} className="text-white text-lg font-heading font-bold hover:text-lemon-yellow transition-colors">
                         {CONTACT.phone}
                       </a>
@@ -59,7 +61,7 @@ export default function SupportCTA() {
                       <Clock className="h-4 w-4" strokeWidth={1.5} />
                     </span>
                     <div>
-                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Radno vrijeme</div>
+                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.supportCTA.hours}</div>
                       <div className="text-white text-lg font-heading font-bold">{CONTACT.workingHours}</div>
                     </div>
                   </li>
@@ -68,7 +70,7 @@ export default function SupportCTA() {
                       <Mail className="h-4 w-4" strokeWidth={1.5} />
                     </span>
                     <div>
-                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Email</div>
+                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.supportCTA.email}</div>
                       <a href={`mailto:${CONTACT.email}`} className="text-white text-lg font-heading font-bold hover:text-lemon-yellow transition-colors break-all">
                         {CONTACT.email}
                       </a>
@@ -79,7 +81,7 @@ export default function SupportCTA() {
                       <Globe className="h-4 w-4" strokeWidth={1.5} />
                     </span>
                     <div>
-                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">Website</div>
+                      <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{t.supportCTA.website}</div>
                       <a href={`https://${CONTACT.website}`} className="text-white text-lg font-heading font-bold hover:text-lemon-yellow transition-colors">
                         {CONTACT.website}
                       </a>

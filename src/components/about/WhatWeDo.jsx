@@ -1,25 +1,22 @@
 import { Globe, Warehouse, PackageCheck, Truck, Boxes, Headset } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const services = [
-  { icon: Globe, title: "Međunarodni transport" },
-  { icon: Warehouse, title: "Skladištenje robe" },
-  { icon: PackageCheck, title: "Distribucija robe" },
-  { icon: Truck, title: "Unutrašnji transport na teritoriji Crne Gore" },
-  { icon: Boxes, title: "Manipulacija robom" },
-  { icon: Headset, title: "Logistička podrška poslovnim korisnicima" },
-];
+const icons = [Globe, Warehouse, PackageCheck, Truck, Boxes, Headset];
 
 export default function WhatWeDo() {
+  const { t } = useLanguage();
+  const services = t.whatWeDoServices.map((title, i) => ({ title, icon: icons[i] }));
+
   return (
     <section className="bg-lemon-gray py-20 lg:py-32 border-t border-white/5">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="max-w-2xl mb-12 lg:mb-16">
-          <Reveal><SectionLabel>Šta radimo</SectionLabel></Reveal>
+          <Reveal><SectionLabel>{t.about.whatWeDoLabel}</SectionLabel></Reveal>
           <Reveal delay={80}>
             <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-              Kompletna logistička podrška
+              {t.about.whatWeDoTitle}
             </h2>
           </Reveal>
         </div>

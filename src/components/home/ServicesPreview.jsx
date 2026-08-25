@@ -5,28 +5,29 @@ import {
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { SERVICES } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const iconMap = {
   Globe, Truck, Warehouse, PackageCheck, Boxes, Headset,
 };
 
-// Show 5 services on homepage (the requested five)
 const HOME_SERVICES = SERVICES.filter((s) =>
   ["medjunarodni-transport", "unutarasnji-transport", "skladistenje", "distribucija", "podrska"].includes(s.id)
 );
 
 export default function ServicesPreview() {
+  const { lang, t } = useLanguage();
   return (
     <section className="bg-lemon-dark py-20 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <div className="max-w-2xl">
             <Reveal>
-              <SectionLabel>Usluge</SectionLabel>
+              <SectionLabel>{t.servicesPreview.label}</SectionLabel>
             </Reveal>
             <Reveal delay={80}>
               <h2 className="mt-5 text-white text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-balance">
-                Logistička podrška prilagođena vašem poslovanju
+                {t.servicesPreview.title}
               </h2>
             </Reveal>
           </div>
@@ -35,7 +36,7 @@ export default function ServicesPreview() {
               to="/usluge"
               className="group inline-flex items-center gap-2 text-lemon-yellow font-heading font-bold text-sm hover:text-white transition-colors"
             >
-              Sve usluge
+              {t.servicesPreview.allServices}
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>
@@ -54,13 +55,13 @@ export default function ServicesPreview() {
                     <Icon className="h-5 w-5" strokeWidth={1.5} />
                   </span>
                   <h3 className="mt-6 text-white text-xl font-heading font-bold tracking-tight">
-                    {service.title}
+                    {lang === "en" ? service.titleEn : service.title}
                   </h3>
                   <p className="mt-3 text-lemon-gray-light text-sm leading-relaxed flex-1">
-                    {service.short}
+                    {lang === "en" ? service.shortEn : service.short}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 text-lemon-yellow font-heading font-bold text-xs uppercase tracking-wider">
-                    Saznajte više
+                    {t.servicesPreview.learnMore}
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
                 </Link>
@@ -75,13 +76,13 @@ export default function ServicesPreview() {
               className="group flex flex-col h-full justify-center bg-lemon-yellow p-8 lg:p-10 hover:bg-white transition-colors duration-300"
             >
               <h3 className="text-lemon-dark text-xl font-heading font-black tracking-tight">
-                Imate specifičan zahtjev?
+                {t.servicesPreview.ctaTitle}
               </h3>
               <p className="mt-3 text-lemon-dark/80 text-sm leading-relaxed">
-                Opisite šta vam je potrebno i vratićemo se sa konkretnim prijedlogom.
+                {t.servicesPreview.ctaText}
               </p>
               <span className="mt-6 inline-flex items-center gap-2 text-lemon-dark font-heading font-bold text-xs uppercase tracking-wider">
-                Pošaljite upit o prevozu
+                {t.servicesPreview.ctaButton}
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </Link>

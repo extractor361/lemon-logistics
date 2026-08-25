@@ -2,22 +2,24 @@ import { ShieldCheck, MessageSquare, CheckCircle2, Handshake } from "lucide-reac
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { VALUES } from "@/lib/siteData";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const iconMap = {
   ShieldCheck, MessageSquare, CheckCircle2, Handshake,
 };
 
 export default function CoreValues() {
+  const { lang, t } = useLanguage();
   return (
     <section className="bg-lemon-dark py-20 lg:py-32 border-t border-white/5">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="max-w-2xl mb-12 lg:mb-16">
           <Reveal>
-            <SectionLabel>Vrijednosti</SectionLabel>
+            <SectionLabel>{t.coreValues.label}</SectionLabel>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-5 text-white text-3xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-balance">
-              Vrijednosti na kojima gradimo svaki posao
+              {t.coreValues.title}
             </h2>
           </Reveal>
         </div>
@@ -33,10 +35,10 @@ export default function CoreValues() {
                   </span>
                   <div className="mt-6 h-px w-10 bg-lemon-yellow/40 group-hover:bg-lemon-yellow transition-colors duration-300" />
                   <h3 className="mt-5 text-white text-lg font-heading font-bold tracking-tight">
-                    {value.title}
+                    {lang === "en" ? value.titleEn : value.title}
                   </h3>
                   <p className="mt-3 text-lemon-gray-light text-sm leading-relaxed">
-                    {value.text}
+                    {lang === "en" ? value.textEn : value.text}
                   </p>
                 </div>
               </Reveal>

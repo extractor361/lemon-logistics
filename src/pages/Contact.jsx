@@ -5,16 +5,10 @@ import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
 import { KARGO_IMAGE, CONTACT } from "@/lib/siteData";
-
-const contactItems = [
-  { icon: Phone, label: "Telefon", value: CONTACT.phone, href: CONTACT.phoneHref },
-  { icon: Mail, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-  { icon: Clock, label: "Radno vrijeme", value: CONTACT.workingHours },
-  { icon: MapPin, label: "Lokacija", value: CONTACT.location },
-  { icon: Globe, label: "Website", value: CONTACT.website, href: `https://${CONTACT.website}` },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -34,7 +28,6 @@ export default function Contact() {
 
   const onSubmit = async (data) => {
     setSubmitting(true);
-    // Simulacija slanja upita — u produkciji povezati sa backend servisom
     await new Promise((resolve) => setTimeout(resolve, 900));
     setSubmitting(false);
     setSubmitted(true);
@@ -46,12 +39,20 @@ export default function Contact() {
       errors[field] ? "border-red-500" : "border-lemon-gray-md focus:border-lemon-yellow"
     }`;
 
+  const contactItems = [
+    { icon: Phone, label: t.contact.phone, value: CONTACT.phone, href: CONTACT.phoneHref },
+    { icon: Mail, label: t.contact.email, value: CONTACT.email, href: `mailto:${CONTACT.email}` },
+    { icon: Clock, label: t.contact.hours, value: CONTACT.workingHours },
+    { icon: MapPin, label: t.contact.location, value: CONTACT.location },
+    { icon: Globe, label: t.contact.website, value: CONTACT.website, href: `https://${CONTACT.website}` },
+  ];
+
   return (
     <>
       <PageHero
-        label="Kontakt"
-        title="Kontaktirajte nas"
-        subtitle="Opisite vaš zahtjev i vratićemo se sa konkretnim prijedlogom. Tu smo svakog dana od 08:00 do 20:00."
+        label={t.contact.heroLabel}
+        title={t.contact.heroTitle}
+        subtitle={t.contact.heroSubtitle}
         image={KARGO_IMAGE}
       />
 
@@ -60,15 +61,15 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Left — contact info */}
             <div className="lg:col-span-5">
-              <Reveal><SectionLabel>Kontakt podaci</SectionLabel></Reveal>
+              <Reveal><SectionLabel>{t.contact.infoLabel}</SectionLabel></Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                  Razgovarajmo o vašem transportu
+                  {t.contact.infoTitle}
                 </h2>
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 text-lemon-gray-light text-base leading-relaxed">
-                  Pozovite nas direktno ili pošaljite upit putem forme. Odgovaramo u najkraćem mogućem roku.
+                  {t.contact.infoText}
                 </p>
               </Reveal>
               <Reveal delay={220}>
@@ -104,36 +105,36 @@ export default function Contact() {
                         <CheckCircle2 className="h-8 w-8" strokeWidth={1.5} />
                       </span>
                       <h3 className="mt-6 text-white text-2xl font-heading font-black tracking-tight">
-                        Upit uspješno poslat
+                        {t.contact.successTitle}
                       </h3>
                       <p className="mt-3 text-lemon-gray-light text-base max-w-md">
-                        Hvala vam na povjerenju. Naš tim će vas kontaktirati u najkraćem mogućem roku.
+                        {t.contact.successText}
                       </p>
                       <button
                         onClick={() => setSubmitted(false)}
                         className="mt-8 inline-flex items-center justify-center border border-white/20 text-white font-heading font-bold text-sm px-6 py-3.5 rounded-sm hover:border-lemon-yellow hover:text-lemon-yellow transition-colors"
                       >
-                        Pošaljite novi upit
+                        {t.contact.newInquiry}
                       </button>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <h3 className="text-white text-xl font-heading font-bold tracking-tight mb-8">
-                        Pošaljite upit o prevozu
+                        {t.contact.formTitle}
                       </h3>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {/* Ime i prezime */}
                         <div className="sm:col-span-2">
                           <label htmlFor="name" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Ime i prezime *
+                            {t.contact.name}
                           </label>
                           <input
                             id="name"
                             type="text"
                             className={inputClass("name")}
-                            placeholder="Vaše ime i prezime"
-                            {...register("name", { required: "Ovo polje je obavezno" })}
+                            placeholder={t.contact.namePlaceholder}
+                            {...register("name", { required: t.contact.required })}
                           />
                           {errors.name && <FieldError msg={errors.name.message} />}
                         </div>
@@ -141,14 +142,14 @@ export default function Contact() {
                         {/* Kompanija */}
                         <div>
                           <label htmlFor="company" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Ime kompanije *
+                            {t.contact.company}
                           </label>
                           <input
                             id="company"
                             type="text"
                             className={inputClass("company")}
-                            placeholder="Naziv kompanije"
-                            {...register("company", { required: "Ovo polje je obavezno" })}
+                            placeholder={t.contact.companyPlaceholder}
+                            {...register("company", { required: t.contact.required })}
                           />
                           {errors.company && <FieldError msg={errors.company.message} />}
                         </div>
@@ -156,14 +157,14 @@ export default function Contact() {
                         {/* Telefon */}
                         <div>
                           <label htmlFor="phone" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Telefon *
+                            {t.contact.phoneLabel}
                           </label>
                           <input
                             id="phone"
                             type="tel"
                             className={inputClass("phone")}
-                            placeholder="+382 ..."
-                            {...register("phone", { required: "Ovo polje je obavezno" })}
+                            placeholder={t.contact.phonePlaceholder}
+                            {...register("phone", { required: t.contact.required })}
                           />
                           {errors.phone && <FieldError msg={errors.phone.message} />}
                         </div>
@@ -171,16 +172,16 @@ export default function Contact() {
                         {/* Email */}
                         <div>
                           <label htmlFor="email" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Email *
+                            {t.contact.emailLabel}
                           </label>
                           <input
                             id="email"
                             type="email"
                             className={inputClass("email")}
-                            placeholder="vas@email.com"
+                            placeholder={t.contact.emailPlaceholder}
                             {...register("email", {
-                              required: "Ovo polje je obavezno",
-                              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Unesite ispravnu email adresu" },
+                              required: t.contact.required,
+                              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t.contact.emailInvalid },
                             })}
                           />
                           {errors.email && <FieldError msg={errors.email.message} />}
@@ -189,18 +190,18 @@ export default function Contact() {
                         {/* Vrsta usluge */}
                         <div>
                           <label htmlFor="service" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Vrsta usluge *
+                            {t.contact.serviceType}
                           </label>
                           <select
                             id="service"
                             className={`${inputClass("service")} cursor-pointer`}
                             defaultValue=""
-                            {...register("service", { required: "Ovo polje je obavezno" })}
+                            {...register("service", { required: t.contact.required })}
                           >
-                            <option value="" disabled className="bg-lemon-gray text-lemon-gray-md">Izaberite uslugu</option>
-                            <option value="Međunarodni transport" className="bg-lemon-gray text-white">Međunarodni transport</option>
-                            <option value="Unutrašnji transport" className="bg-lemon-gray text-white">Unutrašnji transport</option>
-                            <option value="Distribucija" className="bg-lemon-gray text-white">Distribucija</option>
+                            <option value="" disabled className="bg-lemon-gray text-lemon-gray-md">{t.contact.serviceSelect}</option>
+                            <option value="Međunarodni transport" className="bg-lemon-gray text-white">{t.contact.serviceIntl}</option>
+                            <option value="Unutrašnji transport" className="bg-lemon-gray text-white">{t.contact.serviceDomestic}</option>
+                            <option value="Distribucija" className="bg-lemon-gray text-white">{t.contact.serviceDist}</option>
                           </select>
                           {errors.service && <FieldError msg={errors.service.message} />}
                         </div>
@@ -208,13 +209,13 @@ export default function Contact() {
                         {/* Datum utovara */}
                         <div>
                           <label htmlFor="datum_utovara" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Datum utovara *
+                            {t.contact.loadDate}
                           </label>
                           <input
                             id="datum_utovara"
                             type="date"
                             className={`${inputClass("datum_utovara")} [color-scheme:dark]`}
-                            {...register("datum_utovara", { required: "Ovo polje je obavezno" })}
+                            {...register("datum_utovara", { required: t.contact.required })}
                           />
                           {errors.datum_utovara && <FieldError msg={errors.datum_utovara.message} />}
                         </div>
@@ -222,13 +223,13 @@ export default function Contact() {
                         {/* Mjesto utovara */}
                         <div>
                           <label htmlFor="origin" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Mjesto utovara
+                            {t.contact.loadPlace}
                           </label>
                           <input
                             id="origin"
                             type="text"
                             className={inputClass("origin")}
-                            placeholder="Grad ili adresa"
+                            placeholder={t.contact.placePlaceholder}
                             {...register("origin")}
                           />
                         </div>
@@ -236,13 +237,13 @@ export default function Contact() {
                         {/* Mjesto istovara */}
                         <div>
                           <label htmlFor="destination" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Mjesto istovara
+                            {t.contact.unloadPlace}
                           </label>
                           <input
                             id="destination"
                             type="text"
                             className={inputClass("destination")}
-                            placeholder="Grad ili adresa"
+                            placeholder={t.contact.placePlaceholder}
                             {...register("destination")}
                           />
                         </div>
@@ -258,8 +259,8 @@ export default function Contact() {
                                 style={{ accentColor: "#FFCC00" }}
                               />
                               <span className="text-white text-sm font-heading font-bold">
-                                Carinjenje
-                                <span className="text-lemon-gray-light font-normal ml-2">— označite ako je potrebna usluga carinjenja robe</span>
+                                {t.contact.customs}
+                                <span className="text-lemon-gray-light font-normal ml-2">{t.contact.customsNote}</span>
                               </span>
                             </label>
                           </div>
@@ -268,14 +269,14 @@ export default function Contact() {
                         {/* Poruka */}
                         <div className="sm:col-span-2">
                           <label htmlFor="message" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Poruka *
+                            {t.contact.message}
                           </label>
                           <textarea
                             id="message"
                             rows={4}
                             className={`${inputClass("message")} resize-none`}
-                            placeholder="Opišite vaš zahtjev..."
-                            {...register("message", { required: "Ovo polje je obavezno" })}
+                            placeholder={t.contact.messagePlaceholder}
+                            {...register("message", { required: t.contact.required })}
                           />
                           {errors.message && <FieldError msg={errors.message.message} />}
                         </div>
@@ -283,14 +284,14 @@ export default function Contact() {
 
                       <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <p className="text-lemon-gray-md text-xs">
-                          Polja označena sa * su obavezna.
+                          {t.contact.requiredNote}
                         </p>
                         <button
                           type="submit"
                           disabled={submitting}
                           className="group inline-flex items-center justify-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                          {submitting ? "Slanje..." : "Pošaljite upit o prevozu"}
+                          {submitting ? t.contact.submitting : t.contact.submit}
                           {!submitting && <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />}
                         </button>
                       </div>

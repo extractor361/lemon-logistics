@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import Logo from "./Logo";
-
-const navLinks = [
-  { label: "Početna", path: "/" },
-  { label: "O nama", path: "/o-nama" },
-  { label: "Usluge", path: "/usluge" },
-  { label: "Lemon Customer Support", path: "/customer-support" },
-  { label: "Kontakt", path: "/kontakt" },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.home, path: "/" },
+    { label: t.nav.about, path: "/o-nama" },
+    { label: t.nav.services, path: "/usluge" },
+    { label: t.nav.support, path: "/customer-support" },
+    { label: t.nav.contact, path: "/kontakt" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -45,7 +47,7 @@ export default function Header() {
           <Logo />
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Glavna navigacija">
+          <nav className="hidden lg:flex items-center gap-1" aria-label={t.nav.home}>
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
@@ -72,16 +74,26 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* Language toggle */}
+            <button
+              onClick={() => setLang(lang === "me" ? "en" : "me")}
+              className="inline-flex items-center gap-1.5 text-lemon-gray-light hover:text-lemon-yellow transition-colors px-2.5 py-2 text-sm font-heading font-bold"
+              aria-label="Switch language"
+            >
+              <Globe className="h-4 w-4" />
+              <span>{lang === "me" ? "EN" : "ME"}</span>
+            </button>
+
             <Link
               to="/kontakt"
               className="hidden sm:inline-flex items-center justify-center bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-5 py-2.5 rounded-sm hover:bg-white transition-colors duration-200"
             >
-              Kontaktirajte nas
+              {t.header.cta}
             </Link>
             <button
               className="lg:hidden inline-flex items-center justify-center text-white p-1.5"
               onClick={() => setOpen((v) => !v)}
-              aria-label={open ? "Zatvori meni" : "Otvori meni"}
+              aria-label={open ? t.header.closeMenu : t.header.openMenu}
               aria-expanded={open}
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -93,10 +105,10 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-out bg-lemon-dark border-t border-white/5 ${
-          open ? "max-h-[480px]" : "max-h-0"
+          open ? "max-h-[520px]" : "max-h-0"
         }`}
       >
-        <nav className="px-5 sm:px-8 py-4 flex flex-col gap-1" aria-label="Mobilna navigacija">
+        <nav className="px-5 sm:px-8 py-4 flex flex-col gap-1" aria-label={t.nav.home}>
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -117,7 +129,7 @@ export default function Header() {
             to="/kontakt"
             className="mt-3 inline-flex items-center justify-center bg-lemon-yellow text-lemon-dark font-heading font-bold text-base px-5 py-3.5 rounded-sm"
           >
-            Kontaktirajte nas
+            {t.header.cta}
           </Link>
         </nav>
       </div>
