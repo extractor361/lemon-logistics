@@ -38,7 +38,7 @@ export default function Contact() {
       reset();
     } catch (e) {
       console.error(e);
-      setSubmitError(true);
+      setSubmitError(e?.message || String(e));
     } finally {
       setSubmitting(false);
     }
@@ -307,9 +307,9 @@ export default function Contact() {
                       </div>
 
                       {submitError && (
-                        <div className="mt-4 flex items-center gap-2 text-red-400 text-sm border border-red-500/30 bg-red-500/10 rounded-sm px-4 py-3">
-                          <AlertCircle className="h-4 w-4 shrink-0" />
-                          {t.contact.errorText}
+                        <div className="mt-4 flex items-start gap-2 text-red-400 text-sm border border-red-500/30 bg-red-500/10 rounded-sm px-4 py-3">
+                          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                          <span>{typeof submitError === "string" ? submitError : t.contact.errorText}</span>
                         </div>
                       )}
                     </form>
