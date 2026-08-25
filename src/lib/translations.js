@@ -133,7 +133,7 @@ export const translations = {
     services: {
       heroLabel: "Usluge",
       heroTitle: "Logističke usluge prilagođene vašem poslovanju",
-      heroSubtitle: "Od međunarodnog transporta do skladištenja i distribucije, organizujemo svaku uslugu ozbiljno, transparentno i u skladu sa dogovorenim rokovima.",
+      heroSubtitle: "Međunarodni transport, skladištenje i distribuciju organizujemo ozbiljno, transparentno i u skladu sa dogovorenim rokovima.",
       serviceLabel: "Usluga",
       cta: "Pošaljite upit o prevozu",
       finalTitle: "Niste sigurni koja usluga vam odgovara?",
@@ -354,7 +354,7 @@ export const translations = {
     services: {
       heroLabel: "Services",
       heroTitle: "Logistics services tailored to your business",
-      heroSubtitle: "From international transport to warehousing and distribution, we organize every service seriously, transparently and in line with agreed deadlines.",
+      heroSubtitle: "We organize international transport, warehousing and distribution seriously, transparently and in line with agreed deadlines.",
       serviceLabel: "Service",
       cta: "Send a transport inquiry",
       finalTitle: "Not sure which service suits you?",

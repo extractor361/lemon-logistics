@@ -78,9 +78,9 @@ export const SERVICES = [
     short: "Sigurno skladištenje robe u kontrolisanim uslovima, uz preglednost i odgovorno rukovanje.",
     shortEn: "Secure goods storage under controlled conditions, with transparency and responsible handling.",
     description:
-      "Skladištenje je više od prostora za odlaganje. Obezbeđujemo kontrolisane uslove, jasnu evidenciju i odgovorno rukovanje robom tokom cijelog perioda skladištenja.",
+      "Skladištenje podrazumijeva kontrolisane uslove, jasnu evidenciju i odgovorno rukovanje robom tokom cijelog perioda skladištenja.",
     descriptionEn:
-      "Warehousing is more than storage space. We provide controlled conditions, clear records and responsible handling of goods throughout the entire storage period.",
+      "Warehousing involves controlled conditions, clear records and responsible handling of goods throughout the entire storage period.",
     image: WAREHOUSE_IMAGE,
     icon: "Warehouse",
     benefits: [
@@ -147,9 +147,9 @@ export const SERVICES = [
     short: "Kompletna organizacija logistike za firme kojima je potreban pouzdan partner u svakom koraku.",
     shortEn: "Complete logistics organization for companies that need a reliable partner at every step.",
     description:
-      "Za poslovne korisnike preuzimamo organizaciju logistike kao cjelinu — od planiranja do realizacije. Prilagođavamo se potrebama vašeg poslovanja i gradimo dugoročnu saradnju.",
+      "Za poslovne korisnike preuzimamo kompletnu organizaciju logistike, obuhvatajući planiranje i realizaciju. Prilagođavamo se potrebama vašeg poslovanja i gradimo dugoročnu saradnju.",
     descriptionEn:
-      "For business clients we take over logistics organization as a whole — from planning to execution. We adapt to your business needs and build long-term cooperation.",
+      "For business clients we take over complete logistics organization, covering planning and execution. We adapt to your business needs and build long-term cooperation.",
     image: GRILLE_IMAGE,
     icon: "Headset",
     benefits: [
