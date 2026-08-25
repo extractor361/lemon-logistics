@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
+import WhatWeDo from "@/components/about/WhatWeDo";
 import { WAREHOUSE_IMAGE, FLEET_IMAGE, CARGO_HANDLING_IMAGE } from "@/lib/siteData";
 
 const values = [
-  { icon: ShieldCheck, title: "Odgovornost", text: "Preuzimamo odgovornost za svaki dogovor i njegovu realizaciju." },
-  { icon: MessageSquare, title: "Komunikacija", text: "Redovno informišemo partnere o statusu svake isporuke." },
-  { icon: CheckCircle2, title: "Pouzdanost", text: "Poštujemo rokove i ispunjavamo obećanja kroz dosljedan rad." },
-  { icon: Handshake, title: "Partnerstvo", text: "Svaki transport posmatramo kao početak dugoročne saradnje." },
+  { icon: ShieldCheck, title: "Odgovornost", text: "Svaki dogovor shvatamo ozbiljno i preuzimamo odgovornost za njegovu realizaciju." },
+  { icon: MessageSquare, title: "Komunikacija", text: "Vjerujemo da kvalitetna komunikacija sprječava većinu problema. Zato naše partnere redovno informišemo o statusu svake isporuke." },
+  { icon: CheckCircle2, title: "Pouzdanost", text: "Poštujemo rokove, ispunjavamo obećanja i gradimo povjerenje kroz dosljedan rad." },
+  { icon: Handshake, title: "Partnerstvo", text: "Ne gledamo svaki transport kao pojedinačan posao, već kao početak dugoročne saradnje." },
 ];
 
 const workSteps = [
@@ -38,16 +39,23 @@ export default function About() {
               <Reveal><SectionLabel>O nama</SectionLabel></Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                  Logistika zasnovana na odgovornosti
+                  Ne organizujemo samo transport.<br />
+                  <span className="text-lemon-yellow">Gradimo povjerenje.</span>
                 </h2>
               </Reveal>
               <Reveal delay={160}>
                 <div className="mt-6 space-y-4 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
                   <p>
-                    Lemon Logistics je logistička kompanija specijalizovana za međunarodni i unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.
+                    Lemon Logistics je logistička kompanija specijalizovana za međunarodni transport, unutrašnji transport, skladištenje i organizaciju logističkih usluga na teritoriji Crne Gore.
                   </p>
                   <p>
-                    Poslujemo sa jasnim ciljem — da partnerima olakšamo organizaciju logistike i osiguramo da svaka isporuka prođe bez nepotrebnih komplikacija. Svaki dogovor shvatamo ozbiljno, a komunikaciju održavamo tokom cijelog procesa.
+                    Nastali smo iz dugogodišnjeg iskustva u logistici, prodaji i razvoju poslovnih sistema. Nakon godina rada na izgradnji uspješnih procesa, odlučili smo da stvorimo sopstveni sistem – kompaniju koja će poslovati onako kako vjerujemo da logistika treba da funkcioniše: profesionalno, odgovorno i transparentno.
+                  </p>
+                  <p>
+                    Za nas transport nije samo prevoz robe od tačke A do tačke B. To je odgovornost prema klijentu, poštovanje dogovorenih rokova i stalna komunikacija tokom cijelog procesa.
+                  </p>
+                  <p>
+                    Naš cilj nije da budemo najveća transportna kompanija. Naš cilj je da budemo kompanija kojoj se partneri vraćaju zato što znaju da će svaki posao biti organizovan ozbiljno, efikasno i bez nepotrebnih komplikacija.
                   </p>
                 </div>
               </Reveal>
@@ -72,9 +80,14 @@ export default function About() {
                   <Target className="h-5 w-5" strokeWidth={1.5} />
                 </span>
                 <h2 className="mt-6 text-white text-2xl lg:text-3xl font-heading font-black tracking-tight">Naša misija</h2>
-                <p className="mt-5 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
-                  Da pojednostavimo logistiku našim partnerima kroz pouzdanu organizaciju transporta, kvalitetnu komunikaciju i odgovoran pristup svakom zadatku.
-                </p>
+                <div className="mt-5 space-y-4 text-lemon-gray-light text-base lg:text-lg leading-relaxed">
+                  <p>
+                    Da pojednostavimo logistiku našim partnerima kroz pouzdanu organizaciju transporta, kvalitetnu komunikaciju i odgovoran pristup svakom zadatku.
+                  </p>
+                  <p>
+                    Vjerujemo da logistički partner treba da preuzme brigu o procesu, kako bi se naši klijenti mogli posvetiti svom osnovnom poslu.
+                  </p>
+                </div>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -117,6 +130,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <WhatWeDo />
 
       {/* Način rada */}
       <section className="bg-lemon-gray py-20 lg:py-32 border-t border-white/5">

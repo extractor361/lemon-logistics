@@ -15,7 +15,7 @@ const serviceLinks = [
   { label: "Unutrašnji transport", path: "/usluge#unutarasnji-transport" },
   { label: "Skladištenje robe", path: "/usluge#skladistenje" },
   { label: "Distribucija robe", path: "/usluge#distribucija" },
-  { label: "Rukovanje robom", path: "/usluge#rukovanje" },
+  { label: "Manipulacija robom", path: "/usluge#rukovanje" },
   { label: "Logistička podrška", path: "/usluge#podrska" },
 ];
 

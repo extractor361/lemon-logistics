@@ -38,7 +38,7 @@ export const SERVICES = [
   },
   {
     id: "unutarasnji-transport",
-    title: "Unutrašnji transport u Crnoj Gori",
+    title: "Unutrašnji transport na teritoriji Crne Gore",
     short: "Pouzdan prevoz robe na teritoriji Crne Gore, sa poznavanjem lokalnih relacija i uslova.",
     description:
       "Za prevoz unutar Crne Gore koristimo iskustvo i poznavanje lokalnih relacija. Organizujemo transport brzo, transparentno i u skladu sa dogovorenim rokovima.",
@@ -80,7 +80,7 @@ export const SERVICES = [
   },
   {
     id: "rukovanje",
-    title: "Rukovanje robom",
+    title: "Manipulacija robom",
     short: "Pažljivo utovar, prenos i istovar robe uz poštovanje procedura sigurnosti.",
     description:
       "Svaki komad robe zahtijeva odgovarajući pristup pri rukovanju. Vodimo računa o sigurnosti, ispravnosti i procedurama tokom utovara, prenosa i istovara.",

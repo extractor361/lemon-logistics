@@ -25,7 +25,7 @@ export default function SupportCTA() {
               </Reveal>
               <Reveal delay={160}>
                 <p className="mt-6 text-lemon-gray-light text-base lg:text-lg leading-relaxed max-w-lg">
-                  Znamo koliko je pravovremena informacija važna u logistici. Zato je naš tim dostupan svakog dana od 08:00 do 20:00, kako bi partneri u svakom trenutku imali pouzdanu podršku i tačne informacije.
+                  Znamo koliko je pravovremena informacija važna u logistici. Zato je naš Lemon Customer Support dostupan svakog dana od 08:00 do 20:00 putem broja 020/66-22-66, kako bi partneri u svakom trenutku imali pouzdanu podršku i tačne informacije.
                 </p>
               </Reveal>
               <Reveal delay={240}>
