@@ -24,7 +24,7 @@ export default function FinalCTA() {
                   to="/kontakt"
                   className="group inline-flex items-center justify-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-8 py-4 rounded-sm hover:bg-white transition-colors duration-200"
                 >
-                  Pošaljite upit
+                  Pošaljite upit o prevozu
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               </div>

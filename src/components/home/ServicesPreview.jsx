@@ -81,7 +81,7 @@ export default function ServicesPreview() {
                 Opisite šta vam je potrebno i vratićemo se sa konkretnim prijedlogom.
               </p>
               <span className="mt-6 inline-flex items-center gap-2 text-lemon-dark font-heading font-bold text-xs uppercase tracking-wider">
-                Pošaljite upit
+                Pošaljite upit o prevozu
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </Link>

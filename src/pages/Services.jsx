@@ -76,7 +76,7 @@ export default function Services() {
                       to="/kontakt"
                       className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-6 py-3.5 rounded-sm hover:bg-white transition-colors"
                     >
-                      Pošaljite upit
+                      Pošaljite upit o prevozu
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Reveal>
@@ -101,7 +101,7 @@ export default function Services() {
               to="/kontakt"
               className="group mt-8 inline-flex items-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors"
             >
-              Pošaljite upit
+              Pošaljite upit o prevozu
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>

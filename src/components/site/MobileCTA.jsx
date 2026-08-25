@@ -16,7 +16,7 @@ export default function MobileCTA() {
         className="flex items-center justify-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm py-3.5 active:bg-white transition-colors"
       >
         <Send className="h-4 w-4" />
-        Pošaljite upit
+        Pošaljite upit o prevozu
       </Link>
     </div>
   );

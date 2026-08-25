@@ -4,7 +4,7 @@ import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle } fr
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
-import { KARGO_IMAGE, CONTACT, SERVICES } from "@/lib/siteData";
+import { KARGO_IMAGE, CONTACT } from "@/lib/siteData";
 
 const contactItems = [
   { icon: Phone, label: "Telefon", value: CONTACT.phone, href: CONTACT.phoneHref },
@@ -21,13 +21,16 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
     reset,
   } = useForm({
     defaultValues: {
-      name: "", company: "", phone: "", email: "", service: "", origin: "", destination: "", message: "",
+      name: "", company: "", phone: "", email: "", service: "", datum_utovara: "", origin: "", destination: "", carinjenje: false, message: "",
     },
   });
+
+  const selectedService = watch("service");
 
   const onSubmit = async (data) => {
     setSubmitting(true);
@@ -116,7 +119,7 @@ export default function Contact() {
                   ) : (
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <h3 className="text-white text-xl font-heading font-bold tracking-tight mb-8">
-                        Pošaljite upit
+                        Pošaljite upit o prevozu
                       </h3>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -138,15 +141,16 @@ export default function Contact() {
                         {/* Kompanija */}
                         <div>
                           <label htmlFor="company" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Kompanija
+                            Ime kompanije *
                           </label>
                           <input
                             id="company"
                             type="text"
                             className={inputClass("company")}
                             placeholder="Naziv kompanije"
-                            {...register("company")}
+                            {...register("company", { required: "Ovo polje je obavezno" })}
                           />
+                          {errors.company && <FieldError msg={errors.company.message} />}
                         </div>
 
                         {/* Telefon */}
@@ -194,18 +198,31 @@ export default function Contact() {
                             {...register("service", { required: "Ovo polje je obavezno" })}
                           >
                             <option value="" disabled className="bg-lemon-gray text-lemon-gray-md">Izaberite uslugu</option>
-                            {SERVICES.map((s) => (
-                              <option key={s.id} value={s.title} className="bg-lemon-gray text-white">{s.title}</option>
-                            ))}
-                            <option value="Drugo" className="bg-lemon-gray text-white">Drugo</option>
+                            <option value="Međunarodni transport" className="bg-lemon-gray text-white">Međunarodni transport</option>
+                            <option value="Unutrašnji transport" className="bg-lemon-gray text-white">Unutrašnji transport</option>
+                            <option value="Distribucija" className="bg-lemon-gray text-white">Distribucija</option>
                           </select>
                           {errors.service && <FieldError msg={errors.service.message} />}
                         </div>
 
-                        {/* Polazište */}
+                        {/* Datum utovara */}
+                        <div>
+                          <label htmlFor="datum_utovara" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
+                            Datum utovara *
+                          </label>
+                          <input
+                            id="datum_utovara"
+                            type="date"
+                            className={`${inputClass("datum_utovara")} [color-scheme:dark]`}
+                            {...register("datum_utovara", { required: "Ovo polje je obavezno" })}
+                          />
+                          {errors.datum_utovara && <FieldError msg={errors.datum_utovara.message} />}
+                        </div>
+
+                        {/* Mjesto utovara */}
                         <div>
                           <label htmlFor="origin" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Polazište
+                            Mjesto utovara
                           </label>
                           <input
                             id="origin"
@@ -216,10 +233,10 @@ export default function Contact() {
                           />
                         </div>
 
-                        {/* Odredište */}
+                        {/* Mjesto istovara */}
                         <div>
                           <label htmlFor="destination" className="block text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold mb-1">
-                            Odredište
+                            Mjesto istovara
                           </label>
                           <input
                             id="destination"
@@ -229,6 +246,24 @@ export default function Contact() {
                             {...register("destination")}
                           />
                         </div>
+
+                        {/* Carinjenje — prikazuje se samo za međunarodni transport */}
+                        {selectedService === "Međunarodni transport" && (
+                          <div className="sm:col-span-2">
+                            <label className="flex items-center gap-3 cursor-pointer mt-2">
+                              <input
+                                type="checkbox"
+                                {...register("carinjenje")}
+                                className="h-5 w-5 cursor-pointer"
+                                style={{ accentColor: "#FFCC00" }}
+                              />
+                              <span className="text-white text-sm font-heading font-bold">
+                                Carinjenje
+                                <span className="text-lemon-gray-light font-normal ml-2">— označite ako je potrebna usluga carinjenja robe</span>
+                              </span>
+                            </label>
+                          </div>
+                        )}
 
                         {/* Poruka */}
                         <div className="sm:col-span-2">
@@ -255,7 +290,7 @@ export default function Contact() {
                           disabled={submitting}
                           className="group inline-flex items-center justify-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-7 py-4 rounded-sm hover:bg-white transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                          {submitting ? "Slanje..." : "Pošaljite upit"}
+                          {submitting ? "Slanje..." : "Pošaljite upit o prevozu"}
                           {!submitting && <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />}
                         </button>
                       </div>

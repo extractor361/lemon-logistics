@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Image } from "@/components/ui/image";
-import { HERO_IMAGE } from "@/lib/siteData";
+import { HERO_IMAGE, CONTACT } from "@/lib/siteData";
 
 export default function Hero() {
   return (
@@ -53,6 +53,14 @@ export default function Hero() {
               Pogledajte usluge
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
+          </div>
+
+          <div className="mt-8 flex items-center gap-3">
+            <span className="h-px w-8 bg-lemon-yellow/40" />
+            <a href={CONTACT.phoneHref} className="inline-flex items-center gap-2 text-white font-heading font-bold text-lg hover:text-lemon-yellow transition-colors">
+              <Phone className="h-5 w-5 text-lemon-yellow" />
+              {CONTACT.phone}
+            </a>
           </div>
         </div>
       </div>
