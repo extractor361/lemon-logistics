@@ -3,7 +3,7 @@
 export const CONTACT = {
   phone: "020/66-22-66",
   phoneHref: "tel:+38220662266",
-  email: "vuksan.minic@lemongroup.me",
+  email: "office@lemonlogistics.me",
   website: "lemonlogistics.me",
   workingHours: "08:00–20:00, svakog dana",
   workingHoursShort: "08:00–20:00",
