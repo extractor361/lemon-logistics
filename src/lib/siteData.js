@@ -138,6 +138,25 @@ export const PROCESS_STEPS = [
   { number: "04", title: "Završetak isporuke", text: "Roba stiže na odredište u dogovorenom roku, a mi zatvaramo proces sa izvještajem." },
 ];
 
+export const COVERAGE_HUB = {
+  name: "Podgorica",
+  country: "Crna Gora",
+  position: [42.4304, 19.2594],
+};
+
+export const COVERAGE_DESTINATIONS = [
+  { name: "Beograd", country: "Srbija", position: [44.7866, 20.4489] },
+  { name: "Sarajevo", country: "BiH", position: [43.8563, 18.4131] },
+  { name: "Zagreb", country: "Hrvatska", position: [45.8150, 15.9819] },
+  { name: "Skopje", country: "Sjeverna Makedonija", position: [41.9981, 21.4254] },
+  { name: "Tirana", country: "Albanija", position: [41.3275, 19.8187] },
+  { name: "Budimpešta", country: "Mađarska", position: [47.4979, 19.0402] },
+  { name: "Beč", country: "Austrija", position: [48.2082, 16.3738] },
+  { name: "Milano", country: "Italija", position: [45.4642, 9.1900] },
+  { name: "Minhen", country: "Njemačka", position: [48.1351, 11.5820] },
+  { name: "Sofija", country: "Bugarska", position: [42.6977, 23.3219] },
+];
+
 export const NAV_LINKS = [
   { label: "Početna", path: "/" },
   { label: "O nama", path: "/o-nama" },
