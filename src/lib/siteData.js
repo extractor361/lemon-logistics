@@ -11,7 +11,7 @@ export const CONTACT = {
 };
 
 export const LOGO = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/63b1396b1_logo-bijeli-zuti.svg";
-export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/062a0d630_heroimage.png";
+export const HERO_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/066521f61_heroimage.png";
 export const WAREHOUSE_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/e03db8376_warehouse.png";
 export const HIGHWAY_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/9286583ce_generated_fe0a129a.png";
 export const MOUNTAIN_IMAGE = "https://media.base44.com/images/public/6a6dcc80d09d780f67deaa90/f11402b6c_generated_3e49e3ed.png";

@@ -13,6 +13,8 @@ export default function Hero() {
           alt="Logistički kamion na utovarnom mestu u sumrak"
           className="block h-full w-full"
           fittingType="fill"
+          focalPointX={0.35}
+          focalPointY={0.5}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-lemon-dark via-lemon-dark/80 to-lemon-dark/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-lemon-dark via-transparent to-lemon-dark/50" />
