@@ -93,20 +93,18 @@ export default function CoverageMap() {
 
           {/* Mapa */}
           <Reveal delay={120}>
-            <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl h-[340px] sm:h-[420px] lg:h-[480px]">
+            <div className="epic-map relative rounded-lg overflow-hidden border border-white/10 shadow-2xl h-[340px] sm:h-[420px] lg:h-[480px]">
+              <style>{`.epic-map .leaflet-tile-pane{filter:brightness(0.4) contrast(1.4) grayscale(0.5);}`}</style>
               <MapContainer
                 center={[44.0, 18.5]}
                 zoom={5}
                 scrollWheelZoom={false}
-                style={{ height: "100%", width: "100%", background: "#1a1a1a" }}
+                style={{ height: "100%", width: "100%", background: "#0a0a0a" }}
                 attributionControl={true}
               >
                 <TileLayer
                   url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
                   attribution='Tiles &copy; Esri'
-                />
-                <TileLayer
-                  url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}"
                 />
                 {/* Rute iz hub-a */}
                 {COVERAGE_DESTINATIONS.map((d) => (
