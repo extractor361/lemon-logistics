@@ -94,7 +94,7 @@ export default function CoverageMap() {
           {/* Mapa */}
           <Reveal delay={120}>
             <div className="epic-map relative rounded-lg overflow-hidden border border-white/10 shadow-2xl h-[340px] sm:h-[420px] lg:h-[480px]">
-              <style>{`.epic-map .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.05);}`}</style>
+              <style>{`.epic-map .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(0.5) contrast(1.15);}`}</style>
               <MapContainer
                 center={[44.0, 18.5]}
                 zoom={5}
