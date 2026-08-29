@@ -99,10 +99,11 @@ export default function CoverageMap() {
                 zoom={5}
                 scrollWheelZoom={false}
                 style={{ height: "100%", width: "100%", background: "#1a1a1a" }}
-                attributionControl={false}
+                attributionControl={true}
               >
                 <TileLayer
-                  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=eyJhbGciOiJIUzI1NiJ9.eyJhIjoiYWNfc2I2d2MwczAiLCJqdGkiOiI0NjZjZDY1MSJ9.Q6RVtV7tzAt2Q4xPcaEjYKE2fA3M5lHKZ5syQatD0Dg"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
                 />
                 {/* Rute iz hub-a */}
                 {COVERAGE_DESTINATIONS.map((d) => (
