@@ -107,7 +107,7 @@ export default function CoverageMap() {
                   attribution='Tiles &copy; Esri'
                 />
                 <TileLayer
-                  url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}"
+                  url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
                 />
                 {/* Rute iz hub-a */}
                 {COVERAGE_DESTINATIONS.map((d) => (
