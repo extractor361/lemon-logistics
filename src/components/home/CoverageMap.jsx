@@ -40,9 +40,9 @@ export default function CoverageMap() {
   const { lang, t } = useLanguage();
 
   return (
-    <section className="bg-lemon-dark py-20 lg:py-28">
+    <section className="bg-lemon-dark py-14 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Tekst */}
           <div>
             <Reveal>
@@ -60,7 +60,7 @@ export default function CoverageMap() {
             </Reveal>
 
             <Reveal delay={240}>
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {COVERAGE_DESTINATIONS.map((d) => (
                   <button
                     key={d.name}
@@ -82,7 +82,7 @@ export default function CoverageMap() {
             </Reveal>
 
             <Reveal delay={320}>
-              <div className="mt-8 flex items-start gap-3 p-4 rounded bg-lemon-gray border-l-2 border-lemon-yellow">
+              <div className="mt-6 flex items-start gap-3 p-4 rounded bg-lemon-gray border-l-2 border-lemon-yellow">
                 <Navigation className="w-5 h-5 text-lemon-yellow shrink-0 mt-0.5" />
                 <p className="text-sm text-lemon-gray-light leading-relaxed">
                   {t.coverageMap.note}
@@ -93,12 +93,12 @@ export default function CoverageMap() {
 
           {/* Mapa */}
           <Reveal delay={120}>
-            <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl h-[340px] sm:h-[420px] lg:h-[480px]">
               <MapContainer
                 center={[44.0, 18.5]}
                 zoom={5}
                 scrollWheelZoom={false}
-                style={{ height: "480px", width: "100%", background: "#1a1a1a" }}
+                style={{ height: "100%", width: "100%", background: "#1a1a1a" }}
                 attributionControl={false}
               >
                 <TileLayer
