@@ -1,11 +1,11 @@
 import Seo from "@/components/Seo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle, Instagram, Facebook, Linkedin } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
-import { KARGO_IMAGE, CONTACT, CONTACT_FORM_EMAIL } from "@/lib/siteData";
+import { KARGO_IMAGE, CONTACT, CONTACT_FORM_EMAIL, SOCIALS } from "@/lib/siteData";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Contact() {
@@ -117,7 +117,29 @@ export default function Contact() {
                   ))}
                 </ul>
               </Reveal>
-            </div>
+              <Reveal delay={280}>
+                <div className="mt-10 flex items-center gap-3">
+                  {(() => {
+                    const iconMap = { Instagram, Facebook, Linkedin };
+                    return SOCIALS.map((s) => {
+                      const Icon = iconMap[s.icon];
+                      return (
+                        <a
+                          key={s.label}
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={s.label}
+                          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/10 text-lemon-gray-light hover:text-lemon-dark hover:bg-lemon-yellow hover:border-lemon-yellow transition-colors duration-200"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </a>
+                      );
+                    });
+                  })()}
+                </div>
+              </Reveal>
+              </div>
 
             {/* Right — form */}
             <div className="lg:col-span-7">

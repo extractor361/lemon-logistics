@@ -10,6 +10,12 @@ export const CONTACT = {
   location: "Podgorica, Crna Gora",
 };
 
+export const SOCIALS = [
+  { label: "Instagram", icon: "Instagram", href: "https://www.instagram.com/lemonlogistics.me" },
+  { label: "LinkedIn", icon: "Linkedin", href: "https://www.linkedin.com/company/lemon-logistics-me/" },
+  { label: "Facebook", icon: "Facebook", href: "https://www.facebook.com/share/1R1EHXfVM8/" },
+];
+
 // Email adresa na koju kontakt forma šalje upite (privremeno za testiranje)
 export const CONTACT_FORM_EMAIL = "info@digital-artefakt.me";
 

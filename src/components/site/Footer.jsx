@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, Clock, Globe, Facebook, Instagram, Linkedin } from "lucide-react";
 import Logo from "./Logo";
 import { useLanguage } from "@/lib/LanguageContext";
-import { CONTACT, SERVICES } from "@/lib/siteData";
+import { CONTACT, SERVICES, SOCIALS } from "@/lib/siteData";
 
 export default function Footer() {
   const { lang, t } = useLanguage();
@@ -15,11 +15,8 @@ export default function Footer() {
     { label: t.nav.contact, path: "/kontakt" },
   ];
 
-  const socials = [
-    { label: "Facebook", icon: Facebook, href: "#" },
-    { label: "Instagram", icon: Instagram, href: "#" },
-    { label: "LinkedIn", icon: Linkedin, href: "#" },
-  ];
+  const iconMap = { Instagram, Facebook, Linkedin };
+  const socials = SOCIALS.map((s) => ({ ...s, icon: iconMap[s.icon] }));
 
   return (
     <footer className="bg-lemon-dark border-t border-white/5 pb-14 lg:pb-0">
@@ -36,6 +33,8 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-white/10 text-lemon-gray-light hover:text-lemon-dark hover:bg-lemon-yellow hover:border-lemon-yellow transition-colors duration-200"
                 >
