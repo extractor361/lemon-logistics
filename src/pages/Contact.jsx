@@ -1,16 +1,15 @@
 import Seo from "@/components/Seo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Phone, Mail, Clock, Globe, MapPin, Send, CheckCircle2, AlertCircle, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Phone, Mail, Clock, Globe, MapPin, Send, AlertCircle, Instagram, Facebook, Linkedin } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PageHero from "@/components/shared/PageHero";
-import { KARGO_IMAGE, CONTACT, CONTACT_FORM_EMAIL, SOCIALS } from "@/lib/siteData";
+import { KARGO_IMAGE, CONTACT, SOCIALS } from "@/lib/siteData";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Contact() {
   const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const {
@@ -42,8 +41,9 @@ export default function Contact() {
         const errData = await res.json().catch(() => ({}));
         throw new Error(errData.error || `HTTP ${res.status}`);
       }
-      setSubmitted(true);
       reset();
+      // Load a separate page so URL-based conversion tags see the confirmation.
+      window.location.assign("/hvala");
     } catch (e) {
       console.error(e);
       setSubmitError(e?.message || String(e));
@@ -145,25 +145,6 @@ export default function Contact() {
             <div className="lg:col-span-7">
               <Reveal delay={120}>
                 <div className="bg-lemon-gray border border-white/5 rounded-sm p-6 sm:p-10 lg:p-12">
-                  {submitted ? (
-                    <div className="flex flex-col items-center justify-center text-center py-12">
-                      <span className="inline-flex h-16 w-16 items-center justify-center bg-lemon-yellow/10 text-lemon-yellow rounded-sm">
-                        <CheckCircle2 className="h-8 w-8" strokeWidth={1.5} />
-                      </span>
-                      <h3 className="mt-6 text-white text-2xl font-heading font-black tracking-tight">
-                        {t.contact.successTitle}
-                      </h3>
-                      <p className="mt-3 text-lemon-gray-light text-base max-w-md">
-                        {t.contact.successText}
-                      </p>
-                      <button
-                        onClick={() => setSubmitted(false)}
-                        className="mt-8 inline-flex items-center justify-center border border-white/20 text-white font-heading font-bold text-sm px-6 py-3.5 rounded-sm hover:border-lemon-yellow hover:text-lemon-yellow transition-colors"
-                      >
-                        {t.contact.newInquiry}
-                      </button>
-                    </div>
-                  ) : (
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <h3 className="text-white text-xl font-heading font-bold tracking-tight mb-8">
                         {t.contact.formTitle}
@@ -349,7 +330,6 @@ export default function Contact() {
                         </div>
                       )}
                     </form>
-                  )}
                 </div>
               </Reveal>
             </div>

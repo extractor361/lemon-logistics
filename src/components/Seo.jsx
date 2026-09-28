@@ -24,10 +24,11 @@ function upsertLink(rel, href) {
   el.setAttribute("href", href);
 }
 
-export default function Seo({ title, description, image, path }) {
+export default function Seo({ title, description, image, path, noindex = false }) {
   useEffect(() => {
     const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
     document.title = fullTitle;
+    upsertMeta('meta[name="robots"]', "content", noindex ? "noindex, follow" : "index, follow");
 
     if (description) {
       upsertMeta('meta[name="description"]', "content", description);
@@ -46,7 +47,7 @@ export default function Seo({ title, description, image, path }) {
       upsertLink("canonical", url);
       upsertMeta('meta[property="og:url"]', "content", url);
     }
-  }, [title, description, image, path]);
+  }, [title, description, image, path, noindex]);
 
   return null;
 }
