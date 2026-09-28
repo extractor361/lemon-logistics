@@ -229,6 +229,10 @@ export const COVERAGE_DESTINATIONS = [
   { name: "Sofija", country: "Bugarska", countryEn: "Bulgaria", position: [42.6977, 23.3219] },
 ];
 
+export const HOME_SERVICES = SERVICES.filter((service) =>
+  ["medjunarodni-transport", "unutarasnji-transport", "skladistenje", "distribucija", "podrska"].includes(service.id)
+);
+
 export const NAV_LINKS = [
   { label: "Početna", path: "/" },
   { label: "O nama", path: "/o-nama" },
