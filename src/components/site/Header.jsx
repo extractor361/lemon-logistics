@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import Logo from "./Logo";
+import ServicesNav from "./ServicesNav";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Header() {
@@ -27,7 +28,7 @@ export default function Header() {
 
   useEffect(() => {
     setOpen(false);
-  }, [location.pathname]);
+  }, [location.key]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -48,7 +49,9 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label={t.nav.home}>
-            {navLinks.map((link) => (
+            {navLinks.map((link) => link.path === "/usluge" ? (
+              <ServicesNav key={link.path} />
+            ) : (
               <NavLink
                 key={link.path}
                 to={link.path}
@@ -104,12 +107,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-out bg-lemon-dark border-t border-white/5 ${
-          open ? "max-h-[520px]" : "max-h-0"
-        }`}
+        hidden={!open}
+        className="absolute inset-x-0 top-full lg:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto bg-lemon-dark border-t border-white/5"
       >
         <nav className="px-5 sm:px-8 py-4 flex flex-col gap-1" aria-label={t.nav.home}>
-          {navLinks.map((link) => (
+          {navLinks.map((link) => link.path === "/usluge" ? (
+            <ServicesNav key={link.path} mobile onNavigate={() => setOpen(false)} />
+          ) : (
             <NavLink
               key={link.path}
               to={link.path}

@@ -4,16 +4,12 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { SERVICES } from "@/lib/siteData";
+import { HOME_SERVICES } from "@/lib/siteData";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const iconMap = {
   Globe, Truck, Warehouse, PackageCheck, Boxes, Headset,
 };
-
-const HOME_SERVICES = SERVICES.filter((s) =>
-  ["medjunarodni-transport", "unutarasnji-transport", "skladistenje", "distribucija", "podrska"].includes(s.id)
-);
 
 export default function ServicesPreview() {
   const { lang, t } = useLanguage();
