@@ -25,6 +25,7 @@ export const WAREHOUSE_IMAGE = "/images/lemon-logistics-warehouse.png";
 export const HIGHWAY_IMAGE = "/images/lemon-logistics-transport-01.png";
 export const MOUNTAIN_IMAGE = "/images/lemon-logistics-transport-02.png";
 export const KARGO_IMAGE = "/images/lemon-logistics-cargo.png";
+export const INTERNATIONAL_IMAGE = "/images/medjunarodni.png";
 export const CARGO_HANDLING_IMAGE = "/images/lemon-logistics-transport-03.png";
 export const DISTRIBUTION_IMAGE = "/images/lemon-logistics-transport-04.png";
 export const FLEET_IMAGE = "/images/lemon-logistics-truck.png";
@@ -41,7 +42,7 @@ export const SERVICES = [
       "Međunarodni transport zahtijeva preciznu organizaciju, poznavanje procedura i stalnu koordinaciju. Pristupamo svakom prevozu planski, uz jasnu komunikaciju i praćenje tokom cijelog procesa.",
     descriptionEn:
       "International transport requires precise organization, knowledge of procedures and constant coordination. We approach every transport with a plan, clear communication and tracking throughout the entire process.",
-    image: KARGO_IMAGE,
+    image: INTERNATIONAL_IMAGE,
     icon: "Globe",
     benefits: [
       "Koordinacija preko granice i dokumentacija",
