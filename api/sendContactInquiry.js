@@ -36,7 +36,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "Lemon Logistics <office@lemonlogistics.me>",
-        to: "office@lemonlogistics.me",
+        to: "office@lemongroup.me",
+        reply_to: email,
         subject: `Novi upit sa sajta — ${name}`,
         text: body,
       }),
