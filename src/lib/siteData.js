@@ -3,7 +3,7 @@
 export const CONTACT = {
   phone: "020/66-22-66",
   phoneHref: "tel:+38220662266",
-  email: "office@lemonlogistics.me",
+  email: "office@lemongroup.me",
   website: "lemonlogistics.me",
   workingHours: "08:00–20:00, svakog dana",
   workingHoursShort: "08:00–20:00",
@@ -16,8 +16,8 @@ export const SOCIALS = [
   { label: "Facebook", icon: "Facebook", href: "https://www.facebook.com/share/1R1EHXfVM8/" },
 ];
 
-// Email adresa na koju kontakt forma šalje upite (privremeno za testiranje)
-export const CONTACT_FORM_EMAIL = "info@digital-artefakt.me";
+// Email adresa na koju kontakt forma šalje upite
+export const CONTACT_FORM_EMAIL = "office@lemongroup.me";
 
 export const LOGO = "/images/lemon-logistics-logo-white-yellow.svg";
 export const HERO_IMAGE = "/images/lemon-logistics-hero.png";
