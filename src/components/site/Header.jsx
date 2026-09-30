@@ -88,7 +88,7 @@ export default function Header() {
             </button>
 
             <Link
-              to="/kontakt"
+              to="/kontakt#kontakt-form"
               className="hidden sm:inline-flex items-center justify-center bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-5 py-2.5 rounded-sm hover:bg-white transition-colors duration-200"
             >
               {t.header.cta}
@@ -130,7 +130,7 @@ export default function Header() {
             </NavLink>
           ))}
           <Link
-            to="/kontakt"
+            to="/kontakt#kontakt-form"
             className="mt-3 inline-flex items-center justify-center bg-lemon-yellow text-lemon-dark font-heading font-bold text-base px-5 py-3.5 rounded-sm"
           >
             {t.header.cta}
