@@ -1,5 +1,5 @@
 import Seo from "@/components/Seo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Phone, Mail, Clock, Globe, MapPin, Send, AlertCircle, Instagram, Facebook, Linkedin } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
@@ -25,6 +25,14 @@ export default function Contact() {
   });
 
   const selectedService = watch("service");
+
+  useEffect(() => {
+    if (window.location.hash !== "#kontakt-form") return;
+    const timer = window.setTimeout(() => {
+      document.getElementById("kontakt-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const [submitError, setSubmitError] = useState(false);
 
@@ -80,11 +88,21 @@ export default function Contact() {
         image={KARGO_IMAGE}
       />
 
-      <section className="bg-lemon-dark py-20 lg:py-32">
+      <section className="bg-lemon-yellow border-b border-lemon-yellow/20">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <p className="text-lemon-dark font-heading font-bold text-sm sm:text-base">{t.contact.formTitle}</p>
+          <a href="#kontakt-form" className="inline-flex items-center justify-center gap-2 bg-lemon-dark text-white font-heading font-bold text-sm px-5 py-3 rounded-sm hover:bg-lemon-gray transition-colors duration-200">
+            {t.contact.submit}
+            <Send className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
+      <section className="bg-lemon-dark py-14 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Left — contact info */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 order-2 lg:order-1">
               <Reveal><SectionLabel>{t.contact.infoLabel}</SectionLabel></Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
@@ -142,9 +160,10 @@ export default function Contact() {
               </div>
 
             {/* Right — form */}
-            <div className="lg:col-span-7">
+            <div id="kontakt-form" className="lg:col-span-7 order-1 lg:order-2 scroll-mt-24">
               <Reveal delay={120}>
-                <div className="bg-lemon-gray border border-white/5 rounded-sm p-6 sm:p-10 lg:p-12">
+                <div className="relative bg-lemon-gray border border-lemon-yellow/30 rounded-sm p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-lemon-yellow" />
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <h3 className="text-white text-xl font-heading font-bold tracking-tight mb-8">
                         {t.contact.formTitle}
