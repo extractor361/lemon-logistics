@@ -23,7 +23,7 @@ export default function FinalCTA() {
               </p>
               <div className="mt-10 flex justify-center">
                 <Link
-                  to="/kontakt"
+                  to="/kontakt#kontakt-form"
                   className="group inline-flex items-center justify-center gap-2 bg-lemon-yellow text-lemon-dark font-heading font-bold text-sm px-8 py-4 rounded-sm hover:bg-white transition-colors duration-200"
                 >
                   {t.finalCTA.cta}
