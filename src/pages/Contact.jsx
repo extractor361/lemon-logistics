@@ -1,6 +1,7 @@
 import Seo from "@/components/Seo";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
 import { Phone, Mail, Clock, Globe, MapPin, Send, AlertCircle, Instagram, Facebook, Linkedin } from "lucide-react";
 import Reveal from "@/components/shared/Reveal";
 import SectionLabel from "@/components/shared/SectionLabel";
@@ -10,6 +11,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Contact() {
   const { t } = useLanguage();
+  const location = useLocation();
   const [submitting, setSubmitting] = useState(false);
 
   const {
@@ -27,12 +29,12 @@ export default function Contact() {
   const selectedService = watch("service");
 
   useEffect(() => {
-    if (window.location.hash !== "#kontakt-form") return;
+    if (location.hash !== "#kontakt-form") return;
     const timer = window.setTimeout(() => {
       document.getElementById("kontakt-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 80);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [location.hash]);
 
   const [submitError, setSubmitError] = useState(false);
 
@@ -85,7 +87,7 @@ export default function Contact() {
         label={t.contact.heroLabel}
         title={t.contact.heroTitle}
         subtitle={t.contact.heroSubtitle}
-        image={KARGO_IMAGE}
+        image="/images/kontakt (1).png"
       />
 
       <section className="bg-lemon-yellow border-b border-lemon-yellow/20">
