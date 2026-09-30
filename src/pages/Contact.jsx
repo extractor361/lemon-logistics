@@ -90,82 +90,11 @@ export default function Contact() {
         image="/images/kontakt (1).png"
       />
 
-      <section className="bg-lemon-yellow border-b border-lemon-yellow/20">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-lemon-dark font-heading font-bold text-sm sm:text-base">{t.contact.formTitle}</p>
-          <a href="#kontakt-form" className="inline-flex items-center justify-center gap-2 bg-lemon-dark text-white font-heading font-bold text-sm px-5 py-3 rounded-sm hover:bg-lemon-gray transition-colors duration-200">
-            {t.contact.submit}
-            <Send className="h-4 w-4" />
-          </a>
-        </div>
-      </section>
-
-      <section className="bg-lemon-dark py-14 lg:py-24">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left — contact info */}
-            <div className="lg:col-span-5 order-2 lg:order-1">
-              <Reveal><SectionLabel>{t.contact.infoLabel}</SectionLabel></Reveal>
-              <Reveal delay={80}>
-                <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
-                  {t.contact.infoTitle}
-                </h2>
-              </Reveal>
-              <Reveal delay={160}>
-                <p className="mt-6 text-lemon-gray-light text-base leading-relaxed">
-                  {t.contact.infoText}
-                </p>
-              </Reveal>
-              <Reveal delay={220}>
-                <ul className="mt-10 space-y-6">
-                  {contactItems.map((item) => (
-                    <li key={item.label} className="flex items-start gap-4">
-                      <span className="inline-flex h-10 w-10 items-center justify-center border border-lemon-yellow/30 text-lemon-yellow rounded-sm shrink-0">
-                        <item.icon className="h-4 w-4" strokeWidth={1.5} />
-                      </span>
-                      <div>
-                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{item.label}</div>
-                        {item.href ? (
-                          <a href={item.href} className="text-white text-lg font-heading font-bold hover:text-lemon-yellow transition-colors break-all">
-                            {item.value}
-                          </a>
-                        ) : (
-                          <div className="text-white text-lg font-heading font-bold">{item.value}</div>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-              <Reveal delay={280}>
-                <div className="mt-10 flex items-center gap-3">
-                  {(() => {
-                    const iconMap = { Instagram, Facebook, Linkedin };
-                    return SOCIALS.map((s) => {
-                      const Icon = iconMap[s.icon];
-                      return (
-                        <a
-                          key={s.label}
-                          href={s.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={s.label}
-                          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/10 text-lemon-gray-light hover:text-lemon-dark hover:bg-lemon-yellow hover:border-lemon-yellow transition-colors duration-200"
-                        >
-                          <Icon className="h-4 w-4" />
-                        </a>
-                      );
-                    });
-                  })()}
-                </div>
-              </Reveal>
-              </div>
-
-            {/* Right — form */}
-            <div id="kontakt-form" className="lg:col-span-7 order-1 lg:order-2 scroll-mt-24">
-              <Reveal delay={120}>
-                <div className="relative bg-lemon-gray border border-lemon-yellow/30 rounded-sm p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-lemon-yellow" />
+      <section id="kontakt-form" className="bg-lemon-dark py-14 lg:py-24 scroll-mt-24">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8 lg:px-12">
+          <Reveal>
+            <div className="relative bg-lemon-gray border border-lemon-yellow/30 rounded-sm p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-lemon-yellow" />
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <h3 className="text-white text-xl font-heading font-bold tracking-tight mb-8">
                         {t.contact.formTitle}
@@ -351,12 +280,77 @@ export default function Contact() {
                         </div>
                       )}
                     </form>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-lemon-gray border-t border-white/5 py-16 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-4">
+              <Reveal><SectionLabel>{t.contact.infoLabel}</SectionLabel></Reveal>
+              <Reveal delay={80}>
+                <h2 className="mt-5 text-white text-3xl lg:text-4xl font-heading font-black tracking-tight">
+                  {t.contact.infoTitle}
+                </h2>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-5 text-lemon-gray-light text-base leading-relaxed">
+                  {t.contact.infoText}
+                </p>
+              </Reveal>
+              <Reveal delay={220}>
+                <div className="mt-8 flex items-center gap-3">
+                  {(() => {
+                    const iconMap = { Instagram, Facebook, Linkedin };
+                    return SOCIALS.map((s) => {
+                      const Icon = iconMap[s.icon];
+                      return (
+                        <a
+                          key={s.label}
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={s.label}
+                          className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-white/10 text-lemon-gray-light hover:text-lemon-dark hover:bg-lemon-yellow hover:border-lemon-yellow transition-colors duration-200"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </a>
+                      );
+                    });
+                  })()}
                 </div>
+              </Reveal>
+            </div>
+
+            <div className="lg:col-span-8">
+              <Reveal delay={120}>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {contactItems.map((item) => (
+                    <li key={item.label} className="flex items-start gap-4 bg-lemon-dark/50 border border-white/5 rounded-sm p-5">
+                      <span className="inline-flex h-10 w-10 items-center justify-center border border-lemon-yellow/30 text-lemon-yellow rounded-sm shrink-0">
+                        <item.icon className="h-4 w-4" strokeWidth={1.5} />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-lemon-gray-light text-xs uppercase tracking-wider font-heading font-bold">{item.label}</div>
+                        {item.href ? (
+                          <a href={item.href} className="text-white text-base sm:text-lg font-heading font-bold hover:text-lemon-yellow transition-colors break-all">
+                            {item.value}
+                          </a>
+                        ) : (
+                          <div className="text-white text-base sm:text-lg font-heading font-bold">{item.value}</div>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
             </div>
           </div>
         </div>
       </section>
+
     </>
   );
 }
